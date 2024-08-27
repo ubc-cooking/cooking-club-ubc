@@ -4,11 +4,11 @@ const now = localFont({
   src: [
     {
       path: "../../public/fonts/Now-Regular.otf",
-      style: "normal",
+      weight: "400",
     },
     {
       path: "../../public/fonts/Now-Bold.otf",
-      style: "bold",
+      weight: "500",
     },
   ],
   display: "swap",
