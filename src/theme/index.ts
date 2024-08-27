@@ -16,11 +16,10 @@ const theme = extendTheme({
   },
   styles: {
     global: {
-      "html, body": {
-        background: "background",
-      },
-      p: {
+      // Optionally set global CSS styles
+      body: {
         color: "primary",
+        background: "background",
       },
     },
   },
