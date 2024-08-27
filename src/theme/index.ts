@@ -1,9 +1,7 @@
 "use client";
 
 import { extendTheme } from "@chakra-ui/react";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { moreSugar, now } from "./fonts";
 
 const theme = extendTheme({
   colors: {
@@ -13,8 +11,8 @@ const theme = extendTheme({
     accent: "#A3C5E1",
   },
   fonts: {
-    heading: inter.style.fontFamily,
-    body: inter.style.fontFamily,
+    heading: moreSugar.style.fontFamily,
+    body: now.style.fontFamily,
   },
   styles: {
     global: {
