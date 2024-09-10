@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar";
 import RootProviders from "@/components/Providers";
 import type { Metadata } from "next";
 
@@ -14,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <RootProviders>{children}</RootProviders>
+        <RootProviders>
+          <Navbar />
+          {children}
+        </RootProviders>
       </body>
     </html>
   );
