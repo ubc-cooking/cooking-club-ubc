@@ -18,9 +18,9 @@ export default function Hamburger({ active }: { active: boolean }) {
           }}
           animate={active ? "active" : "inactive"}
           x1="0"
-          y1="17"
+          y1="14"
           x2="48"
-          y2="17"
+          y2="14"
           stroke-width="3"
           stroke="#DD8004"
         />
@@ -31,9 +31,9 @@ export default function Hamburger({ active }: { active: boolean }) {
           }}
           animate={active ? "active" : "inactive"}
           x1="0"
-          y1="31"
+          y1="28"
           x2="48"
-          y2="31"
+          y2="28"
           stroke-width="3"
           stroke="#DD8004"
         />
