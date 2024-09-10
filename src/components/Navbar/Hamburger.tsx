@@ -8,6 +8,7 @@ export default function Hamburger({ active }: { active: boolean }) {
       viewBox="0 0 48 48"
       version="1.1"
       xmlns="http://www.w3.org/2000/motion.svg"
+      style={{ position: "relative", zIndex: 100 }}
     >
       <g>
         <motion.line
