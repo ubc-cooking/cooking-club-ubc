@@ -3,7 +3,7 @@ import { Box, Image } from "@chakra-ui/react";
 
 export function Shallot() {
     return (
-        <Box boxSize='sm'>
+        <Box boxSize='330px'>
             <Image src='img/shallot.png' marginTop='30px'/>
         </Box>
     )
