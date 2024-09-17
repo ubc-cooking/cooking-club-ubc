@@ -66,26 +66,34 @@ export default function Menu() {
             alignItems={"center"}
             width={{ base: "50%", md: "20%" }}
           >
-            <Icon
-              as={FaInstagram}
-              boxSize={{ base: 5, md: 7 }}
-              color={"background"}
-            />
-            <Icon
-              as={FaTiktok}
-              boxSize={{ base: 5, md: 7 }}
-              color={"background"}
-            />
-            <Icon
-              as={FaFacebookF}
-              boxSize={{ base: 5, md: 7 }}
-              color={"background"}
-            />
-            <Icon
-              as={FaLinkedinIn}
-              boxSize={{ base: 5, md: 7 }}
-              color={"background"}
-            />
+            <Link as={NextLink} href="">
+              <Icon
+                as={FaInstagram}
+                boxSize={{ base: 5, md: 7 }}
+                color={"background"}
+              />
+            </Link>
+            <Link as={NextLink} href="">
+              <Icon
+                as={FaTiktok}
+                boxSize={{ base: 5, md: 7 }}
+                color={"background"}
+              />
+            </Link>
+            <Link as={NextLink} href="">
+              <Icon
+                as={FaFacebookF}
+                boxSize={{ base: 5, md: 7 }}
+                color={"background"}
+              />
+            </Link>
+            <Link as={NextLink} href="">
+              <Icon
+                as={FaLinkedinIn}
+                boxSize={{ base: 5, md: 7 }}
+                color={"background"}
+              />
+            </Link>
           </Flex>
         </Flex>
       </Center>
