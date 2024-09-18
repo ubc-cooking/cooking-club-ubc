@@ -1,11 +1,12 @@
 import { ChakraProvider, Flex, Box } from "@chakra-ui/react";
 import theme from "../../theme/index";
+import { UpcomingEventInfo } from "./UpcomingEventInfo";
 
-export function LatestEvent() {
+export function UpcomingEvent() {
     return (
         <ChakraProvider theme={theme}>
-            <Box backgroundColor='accent'>
-                
+            <Box>
+                <UpcomingEventInfo />
             </Box>
         </ChakraProvider>
     )
