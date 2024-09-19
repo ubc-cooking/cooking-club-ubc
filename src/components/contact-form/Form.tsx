@@ -16,7 +16,7 @@ export function Form() {
 
     // web3forms submit
     async function submitForm(data: any) {
-        data.access_key = "ACCESS_KEY_HERE"
+        data.access_key = "42c33f6a-f94d-451f-b1c5-0c7febaf4904"
         const jsonData = JSON.stringify(data)
 
         const response = await fetch("https://api.web3forms.com/submit", {
