@@ -1,12 +1,13 @@
 "use client";
 
-import { Box, Heading, Flex, Text, Button } from "@chakra-ui/react"
+import { Heading, Flex, Text, Button } from "@chakra-ui/react"
 
 export function UpcomingEventInfo({
-    title = "Title of event",
-    body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    where = "Hells kitchen",
-    when = "March 23, 2030 10:30am-12:30pm"}) {
+        title = "Title of event",
+        body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        where = "Hells kitchen",
+        when = "March 23, 2030 10:30am-12:30pm"
+    }) {
 
     const textMargin = 4
     const fontSizeBody = 14
