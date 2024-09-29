@@ -16,7 +16,7 @@ export function UpcomingEventInfo({
     }
 
     return (
-        <Flex backgroundColor='accent' width="28%" borderRadius='5px' padding='30px 50px' flexDirection='column'>
+        <Flex backgroundColor='accent' width="28%" borderRadius='0px 5px 5px 5px' padding='15px 20px' flexDirection='column' marginLeft='-5px'>
             <Heading marginBottom={textMargin}>
                 {title}
             </Heading>
