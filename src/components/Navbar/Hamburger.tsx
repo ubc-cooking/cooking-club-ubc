@@ -21,7 +21,7 @@ export default function Hamburger({ active }: { active: boolean }) {
           y1="14"
           x2="48"
           y2="14"
-          stroke-width="3"
+          strokeWidth="3"
           stroke="#DD8004"
         />
         <motion.line
@@ -34,7 +34,7 @@ export default function Hamburger({ active }: { active: boolean }) {
           y1="28"
           x2="48"
           y2="28"
-          stroke-width="3"
+          strokeWidth="3"
           stroke="#DD8004"
         />
       </g>
