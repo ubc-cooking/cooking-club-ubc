@@ -1,5 +1,10 @@
-import { Text } from "@chakra-ui/react";
+import Workshop from "@/components/home/Workshop";
+import { Box } from "@chakra-ui/react";
 
 export default function Home() {
-  return <Text>Hello World!</Text>;
+  return (
+    <Box>
+      <Workshop />
+    </Box>
+  );
 }
