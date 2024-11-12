@@ -1,7 +1,11 @@
-import { Text } from "@chakra-ui/react";
+import Workshop from "@/components/home/Workshop";
+import { Box } from "@chakra-ui/react";
 import { Contact } from "@/components/contact-form/ContactForm";
 
 export default function Home() {
-  // return <Text>Hello World!</Text>;
-  return (<Contact />)
+  return (
+    <Box>
+      <Workshop />
+    </Box>
+  );
 }
