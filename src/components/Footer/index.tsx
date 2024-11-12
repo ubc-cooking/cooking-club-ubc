@@ -17,22 +17,24 @@ export default function Footer() {
           direction={"column"}
           w={"100%"}
           h={"100%"}
-          background={"pink"}
         >
           {links.map((navLink) => (
             <Link
               key={navLink.link}
               as={NextLink}
               href={navLink.link}
-              fontFamily={"body"}
+              fontFamily={"heading"}
+              fontSize={"2xl"}
               color={"background"}
             >
               {navLink.label.toUpperCase()}
             </Link>
           ))}
         </GridItem>
-        <GridItem></GridItem>
-        <GridItem></GridItem>
+        <GridItem rowSpan={5} bgColor={"white"}>
+          
+        </GridItem>
+        <GridItem color={"background"}>test</GridItem>
       </Grid>
     </footer>
   );
