@@ -26,7 +26,7 @@ export default function Workshop() {
         left="0"
         width="100%"
         height="100%"
-        bgGradient="linear(to-b, rgba(255, 249, 225, 1) 0%, rgba(255, 255, 255, 0) 15%)"
+        bgGradient="linear(to-b, rgba(255, 249, 225, 1) 0%, rgba(255, 255, 255, 0) 20%)"
         zIndex={1}
       />
       <Box
@@ -35,7 +35,7 @@ export default function Workshop() {
         left="0"
         width="100%"
         height="100%"
-        bgGradient="linear(to-t, rgba(255, 249, 225, 1) 0%, rgba(255, 255, 255, 0) 15%)"
+        bgGradient="linear(to-t, rgba(255, 249, 225, 1) 0%, rgba(255, 255, 255, 0) 20%)"
         zIndex={1}
       />
       <Center height={"100%"} position={"relative"} zIndex={10}>
