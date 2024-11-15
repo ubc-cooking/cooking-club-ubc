@@ -5,17 +5,11 @@ import {
   Divider,
   Flex,
   Heading,
-  Icon,
   Link,
   Text,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTiktok,
-} from "react-icons/fa";
+import Socials from "../Socials";
 import JoinBtn from "./JoinBtn";
 5;
 
@@ -61,40 +55,11 @@ export default function Menu() {
           zIndex={500}
         >
           <JoinBtn />
-          <Flex
+          <Socials
             justifyContent={"space-evenly"}
             alignItems={"center"}
-            width={{ base: "50%", md: "20%" }}
-          >
-            <Link as={NextLink} href="">
-              <Icon
-                as={FaInstagram}
-                boxSize={{ base: 5, md: 7 }}
-                color={"background"}
-              />
-            </Link>
-            <Link as={NextLink} href="">
-              <Icon
-                as={FaTiktok}
-                boxSize={{ base: 5, md: 7 }}
-                color={"background"}
-              />
-            </Link>
-            <Link as={NextLink} href="">
-              <Icon
-                as={FaFacebookF}
-                boxSize={{ base: 5, md: 7 }}
-                color={"background"}
-              />
-            </Link>
-            <Link as={NextLink} href="">
-              <Icon
-                as={FaLinkedinIn}
-                boxSize={{ base: 5, md: 7 }}
-                color={"background"}
-              />
-            </Link>
-          </Flex>
+            width={{ base: "50%", sm: "20%" }}
+          />
         </Flex>
       </Center>
     </Box>
