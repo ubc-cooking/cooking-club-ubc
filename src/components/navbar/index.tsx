@@ -18,7 +18,16 @@ export default function Navbar() {
   const [active, setActive] = useState<boolean>(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
   return (
-    <Flex justifyContent={"space-between"} alignItems={"center"} py={1} px={6}>
+    <Flex
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      position={"fixed"}
+      width={"100%"}
+      background={"background"}
+      zIndex={50}
+      py={1}
+      px={6}
+    >
       <Image src={"/logo.svg"} width={16} height={16} alt={"img"} />
       {/* Empty box to center navlinks */}
       <Box />
