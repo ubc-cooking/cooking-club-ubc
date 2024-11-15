@@ -1,19 +1,11 @@
 "use client";
 
 import { links } from "@/data/links";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Input,
-  Link,
-  chakra,
-} from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Image from "../Image";
 import Socials from "../Socials";
+import Newsletter from "./Newsletter";
 
 export default function Footer() {
   return (
@@ -34,8 +26,9 @@ export default function Footer() {
           zIndex={5}
         />
       </Box>
-      <footer style={{ position: "relative" }}>
+      <footer>
         <Grid
+          position={"relative"}
           templateColumns="repeat(2, 1fr)"
           templateRows="repeat(5, 1fr)"
           height={363}
@@ -69,58 +62,37 @@ export default function Footer() {
             ))}
           </GridItem>
           <GridItem rowSpan={2} />
-          <GridItem rowSpan={2} width={"85%"}>
-            <Heading
-              position={"relative"}
-              color={"background"}
-              fontFamily={"body"}
-              letterSpacing={"1px"}
-              zIndex={10}
-            >
-              Sign up for our{" "}
-              <chakra.span
-                position={"relative"}
-                color={"secondary"}
-                fontFamily={"heading"}
-                fontWeight={"regular"}
-                zIndex={"inherit"}
-              >
-                newsletter!
-              </chakra.span>
-            </Heading>
-            <Input
-              placeholder="Enter your email"
-              width={"100%"}
-              height={"3.5rem"}
-              mt={5}
-              px={5}
-              rounded={"2xl"}
-              fontSize={"2xl"}
-              background={"background"}
-              _focus={{
-                background: "background",
-                borderColor: "accent",
-                zIndex: 10,
-              }}
-              _placeholder={{ color: "primary", background: "background" }}
-              zIndex={10}
-            />
-            <Image
-              src={"/footer-logo.svg"}
-              alt="footer"
-              width={600}
-              height={600}
-              position={"absolute"}
-              top={-40}
-              right={{ base: 0, lg: "5%" }}
-              zIndex={1}
-            />
+          <GridItem rowSpan={2} width={"80%"} position={"relative"} zIndex={10}>
+            <Newsletter />
           </GridItem>
+          <Image
+            src={"/footer-logo.svg"}
+            alt="footer"
+            width={350}
+            height={350}
+            w={620}
+            h={"auto"}
+            position={"absolute"}
+            top={"-6.5rem"}
+            right={{ base: 0, lg: "5%" }}
+            zIndex={1}
+          />
           <GridItem rowSpan={1} />
           <GridItem rowSpan={2}>
             <Socials width={"50%"} gap={5} height={"100%"} />
           </GridItem>
         </Grid>
+        <Text
+          position={"absolute"}
+          bottom={0}
+          right={"20%"}
+          zIndex={10}
+          color={"background"}
+          fontSize={"sm"}
+          p={1}
+        >
+          UBC Cooking Club &copy; 2024
+        </Text>
       </footer>
     </>
   );
