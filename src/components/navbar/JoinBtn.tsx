@@ -11,6 +11,10 @@ export default function JoinBtn() {
       borderRadius={"full"}
       fontFamily={"heading"}
       leftIcon={<Icon as={FaCircle} color={"#90EE90"} boxSize={3} mr={2} />}
+      _hover={{
+        background: "secondary",
+        color: "background",
+      }}
     >
       Join Us!
     </Button>

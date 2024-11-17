@@ -13,6 +13,7 @@ import { useState } from "react";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import JoinBtn from "./JoinBtn";
+import { links } from "@/data";
 
 export default function Navbar() {
   const [active, setActive] = useState<boolean>(false);
@@ -33,18 +34,13 @@ export default function Navbar() {
       <Box />
       {!isMobile && (
         <Flex justifyContent={"space-around"} w={{ md: 400, lg: 500 }}>
-          <Link as={NextLink} href="">
-            home
-          </Link>
-          <Link as={NextLink} href="">
-            about
-          </Link>
-          <Link as={NextLink} href="">
-            recipes
-          </Link>
-          <Link as={NextLink} href="">
-            contact
-          </Link>
+          {links.map(({ label, link }, idx) => {
+            return (
+              <Link key={idx} as={NextLink} href={link}>
+                {label.toLowerCase()}
+              </Link>
+            );
+          })}
         </Flex>
       )}
       <Flex
