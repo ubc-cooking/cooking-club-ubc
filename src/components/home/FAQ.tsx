@@ -6,7 +6,7 @@ import {
   AccordionPanel,
   Container,
   Heading,
-  Icon,
+  Box,
 } from "@chakra-ui/react";
 import Image from "../Image";
 
@@ -46,15 +46,19 @@ const datas = [
 export default function FAQ() {
   return (
     <Container my={10}>
-      <Image
-        src={"/home/bulbIcon.svg"}
-        alt="bulb"
-        width={150}
-        height={150}
-        position={"absolute"}
-        left={"15%"}
-      />
-      <Heading fontFamily={"body"}>FAQ</Heading>
+      <Box position={"relative"}>
+        <Heading fontFamily={"body"}>FAQ</Heading>
+        <Image
+          src={"/home/bulbIcon.svg"}
+          alt="bulb"
+          width={100}
+          height={100}
+          top={-10}
+          left={{ base: 20, md: -24 }}
+          position={"absolute"}
+          zIndex={-1}
+        />
+      </Box>
       <Accordion my={7}>
         {datas.map((data, idx) => (
           <AccordionItem
