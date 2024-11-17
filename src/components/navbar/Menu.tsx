@@ -11,7 +11,7 @@ import {
 import NextLink from "next/link";
 import Socials from "../Socials";
 import JoinBtn from "./JoinBtn";
-5;
+import { links } from "@/data";
 
 export default function Menu() {
   return (
@@ -32,14 +32,14 @@ export default function Menu() {
         menu
       </Text>
       <Flex flexDir={"column"}>
-        {["HOME.", "ABOUT.", "RECIPES.", "CONTACT."].map((link) => (
-          <Link key={link} as={NextLink} href="/" my={2}>
+        {links.map(({ label, link }, idx) => (
+          <Link key={idx} as={NextLink} href={link} my={2}>
             <Heading
               color={"background"}
               fontSize={{ base: "5xl", md: "7xl" }}
               mb={4}
             >
-              {link}
+              {label}
             </Heading>
             <Divider borderColor={"background"} borderWidth={"2px"} />
           </Link>
