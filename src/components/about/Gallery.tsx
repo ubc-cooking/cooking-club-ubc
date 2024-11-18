@@ -34,7 +34,10 @@ export default function Gallery() {
       <Item colSpan={1} rowSpan={1}>
         a
       </Item>
-      <Item colSpan={3} rowSpan={1}>
+      <Item colSpan={2} rowSpan={1}>
+        a
+      </Item>
+      <Item colSpan={1} rowSpan={1}>
         a
       </Item>
       <Item colSpan={1} rowSpan={1}>
