@@ -1,4 +1,5 @@
-import Gallery from "@/components/Gallery";
+import Gallery from "@/components/about/Gallery";
+import Team from "@/components/about/Team";
 import { Box, Heading } from "@chakra-ui/react";
 
 export default function About() {
@@ -14,6 +15,7 @@ export default function About() {
         Get To Know More!
       </Heading>
       <Gallery />
+      <Team />
     </Box>
   );
 }
