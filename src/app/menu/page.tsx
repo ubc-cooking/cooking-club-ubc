@@ -3,6 +3,8 @@ import {
   Box,
   Container,
   Heading,
+  LinkBox,
+  LinkOverlay,
   SimpleGrid,
   Tag,
   Text,
@@ -19,12 +21,13 @@ export default function MenuPage() {
       <SimpleGrid gap={6} columns={{ base: 1, md: 2, lg: 3 }}>
         {cards.map((card, idx) => {
           return (
-            <Box
+            <LinkBox
               key={idx}
-              background={"white"}
+              background={"rgba(256,256,256,70%)"}
               h={{ base: "fit-content", md: 440 }}
               borderRadius={"2xl"}
             >
+              <LinkOverlay href="#" target="_blank" />
               <Image
                 src={"/home/workshop.webp"}
                 alt="burger"
@@ -61,7 +64,7 @@ export default function MenuPage() {
                   );
                 })}
               </Container>
-            </Box>
+            </LinkBox>
           );
         })}
       </SimpleGrid>
