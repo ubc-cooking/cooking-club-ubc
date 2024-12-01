@@ -7,7 +7,12 @@ interface CustomItemProps extends GridItemProps {
 
 const Item = ({ children, ...rest }: CustomItemProps) => {
   return (
-    <GridItem background={"white"} borderRadius={"2xl"} m={2} {...rest}>
+    <GridItem
+      background={"white"}
+      borderRadius={"2xl"}
+      m={{ base: 1, md: 2 }}
+      {...rest}
+    >
       {children}
     </GridItem>
   );
@@ -18,36 +23,36 @@ export default function Gallery() {
     <Grid
       w={"100%"}
       height={"fit-content"}
-      px={10}
+      px={{ base: 1, sm: 10 }}
       templateColumns={"repeat(4,1fr)"}
       templateRows={"repeat(4,1fr)"}
     >
-      <Item colSpan={2} rowSpan={1} h={{ base: 200, lg: 300 }}>
-        a
+      <Item colSpan={2} rowSpan={1} h={{ base: 150, sm: 200, lg: 300 }}>
+        1
       </Item>
       <Item colSpan={2} rowSpan={2}>
-        a
+        2
       </Item>
       <Item colSpan={1} rowSpan={1}>
-        a
+        3
+      </Item>
+      <Item colSpan={1} rowSpan={2}>
+        4
       </Item>
       <Item colSpan={1} rowSpan={1}>
-        a
+        5
+      </Item>
+      <Item colSpan={1} rowSpan={1}>
+        6
+      </Item>
+      <Item colSpan={1} rowSpan={1}>
+        7
       </Item>
       <Item colSpan={2} rowSpan={1}>
-        a
-      </Item>
-      <Item colSpan={1} rowSpan={1}>
-        a
-      </Item>
-      <Item colSpan={1} rowSpan={1}>
-        a
+        8
       </Item>
       <Item colSpan={2} rowSpan={1}>
-        a
-      </Item>
-      <Item colSpan={2} rowSpan={1}>
-        a
+        9
       </Item>
     </Grid>
   );
