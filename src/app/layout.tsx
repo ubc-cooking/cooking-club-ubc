@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ minHeight: "fit-content" }}>
+      <body>
         <RootProviders>
           <Navbar />
           {children}
