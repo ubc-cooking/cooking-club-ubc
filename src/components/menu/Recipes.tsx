@@ -8,6 +8,7 @@ import {
   Tag,
   Text,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 const cards: string[] = ["card1", "card2", "card3", "card4", "card5", "card6"];
 
@@ -20,11 +21,11 @@ export default function Recipes() {
         return (
           <LinkBox
             key={idx}
-            background={"rgba(256,256,256,70%)"}
+            background={"subtle"}
             h={{ base: "fit-content", md: 440 }}
             borderRadius={"2xl"}
           >
-            <LinkOverlay href={`/menu/${card}`} />
+            <LinkOverlay as={NextLink} href={`/menu/${card}`} />
             <Image
               src={"/home/workshop.webp"}
               alt="burger"
