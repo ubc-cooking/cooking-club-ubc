@@ -24,7 +24,11 @@ export default function Newsletter() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <FormControl isInvalid={Boolean(errors.email)}>
+      <FormControl
+        isInvalid={Boolean(errors.email)}
+        position={"relative"}
+        zIndex={10}
+      >
         <Heading
           as={FormLabel}
           htmlFor="email"
@@ -33,6 +37,8 @@ export default function Newsletter() {
           fontFamily={"body"}
           letterSpacing={"1px"}
           zIndex={10}
+          fontSize={{ base: "xl", sm: "3xl", lg: "4xl" }}
+          textAlign={{ base: "center", md: "start" }}
         >
           Sign up for{" "}
           <chakra.span
@@ -44,7 +50,7 @@ export default function Newsletter() {
             newsletter!
           </chakra.span>
         </Heading>
-        <InputGroup>
+        <InputGroup position={"relative"}>
           <InputRightElement
             zIndex={20}
             position={"absolute"}
@@ -75,9 +81,8 @@ export default function Newsletter() {
             width={"100%"}
             height={"3.5rem"}
             mt={5}
-            px={5}
             rounded={"xl"}
-            fontSize={"2xl"}
+            fontSize={{ base: "md", sm: "2xl" }}
             background={"background"}
             _focus={{
               background: "background",
