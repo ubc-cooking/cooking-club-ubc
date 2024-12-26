@@ -21,6 +21,9 @@ const theme = extendTheme({
         color: "primary",
         background: "background",
       },
+      footer: {
+        background: "primary",
+      },
     },
   },
 });
