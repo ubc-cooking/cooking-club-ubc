@@ -10,16 +10,25 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FaAngleRight } from "react-icons/fa";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  email: z.string().email(),
+});
+
+type FormData = z.infer<typeof schema>;
 
 export default function Newsletter() {
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
-  } = useForm<{ email: string }>();
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: { email: string }) => {
+  const onSubmit = async ({ email }: FormData) => {
     //do nothing
+    console.log(email);
   };
 
   return (
