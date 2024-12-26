@@ -21,8 +21,8 @@ const theme = extendTheme({
         color: "primary",
         background: "background",
       },
-      "::selection": {
-        background: "#A3C5E1",
+      footer: {
+        background: "primary",
       },
     },
   },
