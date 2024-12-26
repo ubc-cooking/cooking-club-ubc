@@ -26,6 +26,9 @@ const theme = extendTheme({
         fontWeight: "bold",
         mr: 10,
       },
+      footer: {
+        background: "primary",
+      },
     },
   },
 });
