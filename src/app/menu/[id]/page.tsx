@@ -1,6 +1,5 @@
-"use client";
 import Image from "@/components/Image";
-import { CheckCircleIcon } from "@chakra-ui/icons";
+import BulletIcons from "@/components/menu/BulletIcons";
 import {
   Box,
   Container,
@@ -8,16 +7,28 @@ import {
   Heading,
   Icon,
   List,
-  ListIcon,
   ListItem,
   OrderedList,
   Text,
   VStack,
 } from "@chakra-ui/react";
 
-export default function Recipe({ params }: { params: { id: string } }) {
-  // const id = (await params).id;
-  const { id } = params;
+export async function generateStaticParams() {
+  // const posts = await fetch("https://.../posts").then((res) => res.json());
+  const posts = ["a", "b", "c"];
+
+  return posts.map((post) => ({
+    slug: post,
+  }));
+}
+
+export default async function Recipe({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const id = (await params).id;
+
   return (
     <Container
       as={Flex}
@@ -25,6 +36,7 @@ export default function Recipe({ params }: { params: { id: string } }) {
       height={"fit-content"}
       maxW={"5xl"}
       justifyContent={"space-between"}
+      overflowX={"visible"}
       gap={10}
       direction={{ base: "column", md: "row" }}
     >
@@ -69,7 +81,12 @@ export default function Recipe({ params }: { params: { id: string } }) {
         </OrderedList>
       </VStack>
       <VStack w={{ md: "50%" }} alignItems={"start"}>
-        <Box aspectRatio={1 / 1} width={"100%"} rounded={"xl"}>
+        <Box
+          aspectRatio={1 / 1}
+          width={"100%"}
+          rounded={"xl"}
+          position={"relative"}
+        >
           <Image
             src={"/home/workshop.webp"}
             alt="food"
@@ -89,7 +106,7 @@ export default function Recipe({ params }: { params: { id: string } }) {
             {[1, 2, 3, 4].map((idx) => {
               return (
                 <ListItem key={idx} position={"relative"} pl={2} py={2}>
-                  <ListIcon as={CheckCircleIcon} color="secondary" />
+                  <BulletIcons />
                   260g turkey mince
                 </ListItem>
               );
