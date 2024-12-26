@@ -9,6 +9,7 @@ const theme = extendTheme({
     secondary: "#DD8004",
     background: "#FFF9E1",
     accent: "#A3C5E1",
+    subtle: "rgba(255, 251, 235, 100%)",
   },
   fonts: {
     heading: moreSugar.style.fontFamily,
@@ -20,6 +21,10 @@ const theme = extendTheme({
       body: {
         color: "primary",
         background: "background",
+      },
+      "ol > li::marker": {
+        fontWeight: "bold",
+        mr: 10,
       },
       footer: {
         background: "primary",
