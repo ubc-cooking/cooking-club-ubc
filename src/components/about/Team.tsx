@@ -38,8 +38,8 @@ export default function Team() {
                 fontWeight={"bold"}
                 px={0}
                 py={1}
-                fontSize={{ base: "xs", sm: "md" }}
-                mx={{ base: 1, sm: 3, md: 5 }}
+                fontSize={{ base: "2xs", sm: "md" }}
+                mx={{ base: 1.5, sm: 3, md: 5 }}
               >
                 {role.toUpperCase()}
               </Tab>
