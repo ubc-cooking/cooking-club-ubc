@@ -40,7 +40,7 @@ export default function Workshop() {
       />
       <Center height={"100%"} position={"relative"} zIndex={10}>
         <Box textAlign={"center"}>
-          <Heading fontSize={"5xl"}>
+          <Heading fontSize={{ base: "3xl", md: "5xl" }}>
             <chakra.span
               bgImage={"/home/scribble.svg"}
               bgSize={"contain"}
@@ -50,7 +50,7 @@ export default function Workshop() {
             </chakra.span>{" "}
             <chakra.span fontFamily={"body"}>A WORKSHOP?</chakra.span>
           </Heading>
-          <Text fontSize={"xl"} fontWeight={"bold"}>
+          <Text fontSize={{ base: "md", md: "xl" }} fontWeight={"bold"}>
             DON&apos;T WORRY CHECK OUT OUR{" "}
             <chakra.span fontFamily={"heading"}>RECIPES</chakra.span> PAGE
           </Text>

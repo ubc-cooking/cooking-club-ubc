@@ -1,4 +1,4 @@
-import { Box, Divider, Heading, Text, Flex } from "@chakra-ui/react";
+import { Box, Divider, Heading, Text, Flex, Center } from "@chakra-ui/react";
 import Image from "../Image";
 
 const events = [
@@ -34,14 +34,14 @@ export default function UpcomingEvent() {
       </Heading>
       {events.map((event, idx) => {
         return (
-          <Box key={idx}>
+          <Box key={idx} textAlign={"center"}>
             <Divider
               orientation="horizontal"
               border={"1px"}
               borderColor={"accent"}
             />
-            <Flex>
-              <Box aspectRatio={1} textAlign={"center"} w={28} p={3}>
+            <Flex as={Center} direction={{ base: "column", md: "row" }}>
+              <Box aspectRatio={1} w={28} p={3}>
                 <Heading fontStyle={"regular"} fontSize={"5xl"}>
                   {event.date}
                 </Heading>
@@ -57,12 +57,13 @@ export default function UpcomingEvent() {
                 objectFit={"cover"}
               />
               <Flex
+                direction={{ base: "column", md: "row" }}
                 justifyContent={"space-between"}
                 alignItems={"center"}
                 w={"100%"}
                 px={5}
               >
-                <Box>
+                <Box textAlign={{ base: "unset", md: "start" }}>
                   <Heading fontStyle={"regular"} fontSize={"4xl"}>
                     {event.title}
                   </Heading>

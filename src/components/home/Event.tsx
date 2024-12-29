@@ -11,6 +11,7 @@ const event = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   registerLink: "",
+  isOpen: true,
 };
 
 export default function Event() {
@@ -101,26 +102,32 @@ export default function Event() {
             <strong>Got Questions?</strong> <br />
             Contact us at <u>ubccookingclubinfo@gmail.com</u>
           </Text>
-          <Button
-            size={"md"}
-            mt={3}
-            background={"secondary"}
-            color={"background"}
-            borderRadius={"md"}
-            fontFamily={"heading"}
-            fontWeight={"regular"}
-            boxShadow={"0 5px 0px #FFF9E1, 0 8px 15px rgba(0, 0, 0, 0.2)"}
-            transition={"transform 0.2s ease, box-shadow 0.2s ease"}
-            _hover={{
-              filter: "brightness(1)",
-            }}
-            _active={{
-              boxShadow: "0px 0px 0px #FFF9E1, 0 6px 10px rgba(0, 0, 0, 0.2)",
-              transform: "translateY(2px)",
-            }}
-          >
-            Register
-          </Button>
+          {event.isOpen ? (
+            <Button
+              size={"md"}
+              mt={3}
+              background={"secondary"}
+              color={"background"}
+              borderRadius={"md"}
+              fontFamily={"heading"}
+              fontWeight={"regular"}
+              boxShadow={"0 5px 0px #FFF9E1, 0 8px 15px rgba(0, 0, 0, 0.2)"}
+              transition={"transform 0.2s ease, box-shadow 0.2s ease"}
+              _hover={{
+                filter: "brightness(1)",
+              }}
+              _active={{
+                boxShadow: "0px 0px 0px #FFF9E1, 0 6px 10px rgba(0, 0, 0, 0.2)",
+                transform: "translateY(2px)",
+              }}
+            >
+              Register
+            </Button>
+          ) : (
+            <Text color={"secondary"} fontFamily={"heading"} mt={3}>
+              COMING SOON!
+            </Text>
+          )}
         </Box>
       </Flex>
     </Box>
