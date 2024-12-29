@@ -69,9 +69,11 @@ export default function Event() {
             textAlign={"center"}
             w={28}
             bg={"rgba(163, 197, 225, 50%)"}
-            p={5}
+            p={3}
           >
-            <Heading fontStyle={"regular"}>{event.date}</Heading>
+            <Heading fontStyle={"regular"} fontSize={"5xl"}>
+              {event.date}
+            </Heading>
             <Text fontWeight={"bold"}>{event.month}</Text>
           </Box>
         </Box>
