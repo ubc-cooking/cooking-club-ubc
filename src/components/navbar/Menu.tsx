@@ -12,10 +12,12 @@ import NextLink from "next/link";
 import Socials from "../Socials";
 import JoinBtn from "./JoinBtn";
 import { links } from "@/data";
+import { RefObject } from "react";
 
-export default function Menu() {
+export default function Menu({ menu }: { menu: RefObject<HTMLDivElement> }) {
   return (
     <Box
+      ref={menu}
       position={"fixed"}
       top={0}
       right={0}
