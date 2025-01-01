@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "@/components/Image";
+import { links } from "@/data";
 import {
   Box,
   Flex,
@@ -8,16 +9,45 @@ import {
   Link,
   useBreakpointValue,
 } from "@chakra-ui/react";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 import NextLink from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import Hamburger from "./Hamburger";
-import Menu from "./Menu";
 import JoinBtn from "./JoinBtn";
-import { links } from "@/data";
+import Menu from "./Menu";
 
 export default function Navbar() {
   const [active, setActive] = useState<boolean>(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const menu = useRef<HTMLDivElement>(null);
+  const top = useRef<SVGLineElement>(null);
+  const bot = useRef<SVGLineElement>(null);
+  const tl = useRef<GSAPTimeline>();
+
+  useGSAP(() => {
+    tl.current = gsap.timeline({ paused: true });
+    tl.current
+      .to(top.current, { y: "-9px", rotate: "45deg", duration: 0.3 }, 0)
+      .to(
+        bot.current,
+        {
+          y: "9px",
+          rotate: "-45deg",
+          duration: 0.2,
+        },
+        0
+      );
+  });
+
+  useEffect(() => {
+    active ? tl.current?.play() : tl.current?.reverse();
+  }, [active]);
+
   return (
     <Flex
       justifyContent={"space-between"}
@@ -31,7 +61,6 @@ export default function Navbar() {
       px={6}
     >
       <Image src={"/logo.svg"} width={16} height={16} alt={"img"} />
-      {/* Empty box to center navlinks */}
       <Box />
       {!isMobile && (
         <Flex justifyContent={"space-around"} w={{ md: 400, lg: 500 }}>
@@ -54,11 +83,11 @@ export default function Navbar() {
           variant="unstyled"
           aria-label="hamburger"
           background={"transparent"}
-          icon={<Hamburger active={active} />}
+          icon={<Hamburger top={top} bot={bot} />}
           onClick={() => setActive(!active)}
         />
       </Flex>
-      {active && <Menu />}
+      {active && <Menu menu={menu} />}
     </Flex>
   );
 }

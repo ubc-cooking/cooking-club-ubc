@@ -16,7 +16,7 @@ const event = {
 
 export default function Event() {
   return (
-    <Box>
+    <Box pt={10} background={"background"}>
       <Heading
         position={"relative"}
         fontSize={{ base: "4xl", sm: "6xl" }}

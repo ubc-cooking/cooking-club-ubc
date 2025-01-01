@@ -1,6 +1,12 @@
-import { motion } from "framer-motion";
+import { RefObject } from "react";
 
-export default function Hamburger({ active }: { active: boolean }) {
+export default function Hamburger({
+  top,
+  bot,
+}: {
+  top: RefObject<SVGLineElement>;
+  bot: RefObject<SVGLineElement>;
+}) {
   return (
     <svg
       width="48px"
@@ -11,12 +17,8 @@ export default function Hamburger({ active }: { active: boolean }) {
       style={{ position: "relative", zIndex: 100 }}
     >
       <g>
-        <motion.line
-          variants={{
-            inactive: { y: 0, rotate: 0 },
-            active: { y: "7px", rotate: "-45deg" },
-          }}
-          animate={active ? "active" : "inactive"}
+        <line
+          ref={top}
           x1="0"
           y1="14"
           x2="48"
@@ -24,12 +26,8 @@ export default function Hamburger({ active }: { active: boolean }) {
           strokeWidth="3"
           stroke="#DD8004"
         />
-        <motion.line
-          variants={{
-            inactive: { y: 0 },
-            active: { y: "-7px", rotate: "45deg" },
-          }}
-          animate={active ? "active" : "inactive"}
+        <line
+          ref={bot}
           x1="0"
           y1="28"
           x2="48"
