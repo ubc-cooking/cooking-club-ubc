@@ -1,80 +1,155 @@
 "use client";
 
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  InputProps,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Box, Text, Input, Textarea, Button, Flex } from "@chakra-ui/react";
-import { FaArrowTurnUp } from "react-icons/fa6";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import z from "zod";
+// import HCaptcha from "@hcaptcha/react-hcaptcha";
 
-export function Form() {
-    const {register, handleSubmit, setValue} = useForm();
-    const inputMargins = 1      // margins for the inputs
+const schema = z.object({
+  email: z.string().email().min(1),
+  subject: z.string().min(1),
+  message: z.string().min(1),
+});
 
-    // for captcha
-    const onHCaptchaChange = (token: any) => {
-        setValue("h-captcha-response", token);
-      };
+type FormData = z.infer<typeof schema>;
 
-    // web3forms submit
-    async function submitForm(data: any) {
-        data.access_key = "42c33f6a-f94d-451f-b1c5-0c7febaf4904"
-        const jsonData = JSON.stringify(data)
+export default function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: jsonData,
-        });
-        
-        const result = await response.json();
-        if (result.success) {
-            // on success
-        }
-    }  
-    
+  const inputStyle: InputProps = {
+    m: 1,
+    p: 3,
+    borderBottomColor: "primary",
+    focusBorderColor: "primary",  
+    borderBottom: "2px",
+    size: "md",
+    _placeholder: { color: "primary", opacity: 0.5 },
+  };
 
-    return (
-        <Box 
-            borderRadius='10px' 
-            width='50%'
-            marginLeft='80px'
-            p={10}>
-            <form onSubmit={handleSubmit(submitForm)}>
-                <Box 
-                backgroundColor='accent'
-                padding='20px'
-                borderRadius='30px'
-                marginBottom='10px'>
-                    <Flex alignItems='center' marginLeft='20px'>
-                        <Text fontWeight="bold">To:&nbsp;</Text>
-                        <Text bg='#7BB1DE' padding='5px 10px' borderRadius='7px' as='u' margin={inputMargins}>ubccookingclubinfo@gmail.com</Text>
-                    </Flex>
-                    
-                    <Input size='md' placeholder="Name" margin={inputMargins} outlineColor='accent' {...register("name", {required: true})}/>
-                    <Input size='md' placeholder="Email" type="email" margin={inputMargins} outlineColor='accent' {...register("email", {required: true})} />
-                    <Textarea size='md' placeholder="Message" height={180} margin={inputMargins} outlineColor='accent' {...register("message", {required: true})}/>
-                    <Flex flexDirection='column' placeContent='center'>
-                        <HCaptcha
-                            sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                            reCaptchaCompat={false}
-                            onVerify={onHCaptchaChange}
-                        />
-                    </Flex>
-                </Box>
+  // for captcha
+  //   const onHCaptchaChange = (token: any) => {
+  //     setValue("h-captcha-response", token);
+  //   };
 
-                <Button type="submit" 
-                borderRadius='20px' 
-                backgroundColor='primary' 
-                color='background' 
-                width='100%'
-                margin={inputMargins}
-                rightIcon={<FaArrowTurnUp style={{transform: 'rotate(90deg)' }}/>}
-                _hover={{ bg: '#295ea6' }}>
-                    Send to the Kitchen!
-                </Button>
-            </form>
+  // web3forms submit
+  async function submitForm(data: FormData) {
+    // data.access_key = "42c33f6a-f94d-451f-b1c5-0c7febaf4904";
+    await axios
+      .post("https://api.web3forms.com/submit", data, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+      .catch((e) => {
+        console.log("Error = " + e);
+      });
+  }
+
+  return (
+    <Box width={{ base: "100%", lg: "50%" }}>
+      <form onSubmit={handleSubmit(submitForm)}>
+        <Box backgroundColor="accent" padding={5} borderRadius={"3xl"}>
+          <Flex alignItems="center" position={"relative"}>
+            <Text
+              fontWeight="bold"
+              position={"absolute"}
+              left={3}
+              fontSize={{ base: "sm", sm: "md" }}
+            >
+              To:&nbsp;
+            </Text>
+
+            <Text
+              bg="#7BB1DE"
+              px={2}
+              borderRadius="md"
+              as="u"
+              fontSize={{ base: "xs", sm: "md" }}
+              position={"absolute"}
+              left={{ base: 10, sm: 12 }}
+            >
+              ubccookingclubinfo@gmail.com
+            </Text>
+            <Input
+              variant={"flushed"}
+              disabled
+              _disabled={{
+                borderColor: "primary",
+              }}
+              {...inputStyle}
+            />
+          </Flex>
+          <Input
+            variant={"flushed"}
+            placeholder="example@gmail.com"
+            {...register("email")}
+            {...inputStyle}
+            isInvalid={Boolean(errors.email)}
+          />
+
+          <Input
+            variant={"flushed"}
+            placeholder="Subject"
+            {...register("subject")}
+            {...inputStyle}
+            isInvalid={Boolean(errors.subject)}
+          />
+
+          <Textarea
+            variant={"plain"}
+            size="md"
+            placeholder="Your Message"
+            {...register("message")}
+            background={"accent"}
+            height={180}
+            resize={"none"}
+            m={inputStyle.m}
+            p={inputStyle.p}
+            _placeholder={inputStyle._placeholder}
+            isInvalid={Boolean(errors.message)}
+          />
+          <Flex flexDirection="column" placeContent="center">
+            {/* <HCaptcha
+              sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+              reCaptchaCompat={false}
+              onVerify={onHCaptchaChange}
+            /> */}
+          </Flex>
         </Box>
-    )
+
+        <Button
+          type="submit"
+          borderRadius="full"
+          backgroundColor="primary"
+          color="background"
+          width="100%"
+          m={1}
+          isLoading={isSubmitting}
+          disabled={isSubmitting}
+          _hover={{ filter: "brightness(1.1)" }}
+          _active={{ filter: "brightness(1.5)" }}
+          transition={"0.5s"}
+        >
+          Send to the Kitchen!
+        </Button>
+      </form>
+    </Box>
+  );
 }
