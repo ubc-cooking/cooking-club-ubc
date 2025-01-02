@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Icon } from "@chakra-ui/react";
 import { FaCircle } from "react-icons/fa";
 
