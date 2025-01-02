@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Flex,
+  Icon,
   Input,
   InputProps,
   Text,
@@ -12,6 +13,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { FaLevelUpAlt } from "react-icons/fa";
 import z from "zod";
 // import HCaptcha from "@hcaptcha/react-hcaptcha";
 
@@ -36,7 +38,7 @@ export default function Form() {
     m: 1,
     p: 3,
     borderBottomColor: "primary",
-    focusBorderColor: "primary",  
+    focusBorderColor: "primary",
     borderBottom: "2px",
     size: "md",
     _placeholder: { color: "primary", opacity: 0.5 },
@@ -135,6 +137,7 @@ export default function Form() {
         </Box>
 
         <Button
+          position={"relative"}
           type="submit"
           borderRadius="full"
           backgroundColor="primary"
@@ -147,7 +150,14 @@ export default function Form() {
           _active={{ filter: "brightness(1.5)" }}
           transition={"0.5s"}
         >
-          Send to the Kitchen!
+          Send to the Kitchen!{" "}
+          <Icon
+            as={FaLevelUpAlt}
+            transform={"rotate(90deg)"}
+            boxSize={5}
+            position={"absolute"}
+            right={5}
+          />
         </Button>
       </form>
     </Box>
