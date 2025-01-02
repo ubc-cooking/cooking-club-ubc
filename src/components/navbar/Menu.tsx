@@ -18,10 +18,12 @@ export default function MenuPage({
   menuRef,
   itemRef,
   dividerRef,
+  toggleMenu,
 }: {
   menuRef: RefObject<HTMLDivElement>;
   itemRef: RefObject<HTMLDivElement[]>;
   dividerRef: RefObject<HTMLHRElement[]>;
+  toggleMenu: () => void;
 }) {
   return (
     <Box
@@ -52,6 +54,7 @@ export default function MenuPage({
               position={"relative"}
               my={2}
               href={`/${path}`}
+              onClick={toggleMenu}
             >
               <Heading
                 color={"background"}

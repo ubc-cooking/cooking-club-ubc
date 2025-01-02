@@ -33,6 +33,10 @@ export default function Navbar() {
   const bot = useRef<SVGLineElement>(null);
   const tl = useRef<GSAPTimeline>();
 
+  const toggleMenu = () => {
+    setActive(!active);
+  };
+
   useGSAP(() => {
     tl.current = gsap.timeline({ paused: true });
     tl.current
@@ -69,7 +73,7 @@ export default function Navbar() {
         y: 0,
         duration: 1,
         stagger: 0.1,
-        delay: -0.75,
+        delay: -1,
         ease: "power4.inOut",
       });
   });
@@ -114,10 +118,15 @@ export default function Navbar() {
           aria-label="hamburger"
           background={"transparent"}
           icon={<Hamburger top={top} bot={bot} />}
-          onClick={() => setActive(!active)}
+          onClick={toggleMenu}
         />
       </Flex>
-      <Menu menuRef={menuRef} itemRef={itemRef} dividerRef={dividerRef} />
+      <Menu
+        menuRef={menuRef}
+        itemRef={itemRef}
+        dividerRef={dividerRef}
+        toggleMenu={toggleMenu}
+      />
     </Flex>
   );
 }
