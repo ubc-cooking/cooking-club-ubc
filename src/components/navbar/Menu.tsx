@@ -12,7 +12,7 @@ import {
 import NextLink from "next/link";
 import { RefObject } from "react";
 import Socials from "../Socials";
-import JoinBtn from "./JoinBtn";
+// import JoinBtn from "./JoinBtn";
 
 export default function MenuPage({
   menuRef,
@@ -75,20 +75,20 @@ export default function MenuPage({
           );
         })}
       </Flex>
-      {/* <Flex
+      <Flex
         position={"absolute"}
         direction={"row"}
         width={{ base: "90%", sm: "70%" }}
         bottom={"7%"}
         justifyContent={"space-between"}
       >
-        <JoinBtn />
+        {/* <JoinBtn /> */}
         <Socials
           justifyContent={"space-evenly"}
           alignItems={"center"}
           width={{ base: "50%", sm: "20%" }}
         />
-      </Flex> */}
+      </Flex>
     </Box>
   );
 }
