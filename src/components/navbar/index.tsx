@@ -20,11 +20,15 @@ import Hamburger from "./Hamburger";
 import JoinBtn from "./JoinBtn";
 import Menu from "./Menu";
 
+gsap.registerPlugin(useGSAP);
+
 export default function Navbar() {
   const [active, setActive] = useState<boolean>(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-  const menu = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const itemRef = useRef<HTMLDivElement[]>([]);
+  const dividerRef = useRef<HTMLHRElement[]>([]);
   const top = useRef<SVGLineElement>(null);
   const bot = useRef<SVGLineElement>(null);
   const tl = useRef<GSAPTimeline>();
@@ -42,6 +46,32 @@ export default function Navbar() {
         },
         0
       );
+
+    gsap.set(itemRef.current, { y: 100 });
+    tl.current
+      .to(
+        menuRef.current,
+        {
+          duration: 1.25,
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "power4.inOut",
+        },
+        0
+      )
+      .to(dividerRef.current, {
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        duration: 1,
+        stagger: 0.1,
+        delay: -0.75,
+        ease: "power4.inOut",
+      })
+      .to(itemRef.current, {
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        delay: -0.75,
+        ease: "power4.inOut",
+      });
   });
 
   useEffect(() => {
@@ -64,9 +94,9 @@ export default function Navbar() {
       <Box />
       {!isMobile && (
         <Flex justifyContent={"space-around"} w={{ md: 400, lg: 500 }}>
-          {links.map(({ label, link }, idx) => {
+          {links.map(({ label, path }, idx) => {
             return (
-              <Link key={idx} as={NextLink} href={link}>
+              <Link key={idx} as={NextLink} href={`/${path}`}>
                 {label.toLowerCase()}
               </Link>
             );
@@ -87,7 +117,7 @@ export default function Navbar() {
           onClick={() => setActive(!active)}
         />
       </Flex>
-      {active && <Menu menu={menu} />}
+      <Menu menuRef={menuRef} itemRef={itemRef} dividerRef={dividerRef} />
     </Flex>
   );
 }

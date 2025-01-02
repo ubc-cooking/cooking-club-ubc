@@ -21,9 +21,9 @@ export default function MobileFooter() {
         <Flex direction={"row"} w={"100%"} justifyContent={"space-around"}>
           {links.map((navLink) => (
             <Link
-              key={navLink.link}
+              key={navLink.path}
               as={NextLink}
-              href={navLink.link}
+              href={`/${navLink.path}`}
               fontFamily={"heading"}
               fontSize={"md"}
               color={"background"}
