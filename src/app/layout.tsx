@@ -18,11 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <RootProviders>
-          
           <Navbar />
           {children}
           <Footer />
-        
         </RootProviders>
       </body>
     </html>
