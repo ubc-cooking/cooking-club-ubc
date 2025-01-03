@@ -49,16 +49,17 @@ export default function Form() {
   //     setValue("h-captcha-response", token);
   //   };
 
-  // web3forms submit
-  async function submitForm(data: FormData) {
-    // data.access_key = "42c33f6a-f94d-451f-b1c5-0c7febaf4904";
+  async function submitForm({ email, subject, message }: FormData) {
     await axios
-      .post("https://api.web3forms.com/submit", data, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      })
+      .post(
+        "/api/email",
+        { email, subject, message },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .catch((e) => {
         console.log("Error = " + e);
       });
@@ -100,7 +101,7 @@ export default function Form() {
           </Flex>
           <Input
             variant={"flushed"}
-            placeholder="example@gmail.com"
+            placeholder="Email"
             {...register("email")}
             {...inputStyle}
             isInvalid={Boolean(errors.email)}
@@ -127,13 +128,13 @@ export default function Form() {
             _placeholder={inputStyle._placeholder}
             isInvalid={Boolean(errors.message)}
           />
-          <Flex flexDirection="column" placeContent="center">
-            {/* <HCaptcha
+          {/* <Flex flexDirection="column" placeContent="center">
+            <HCaptcha
               sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
               reCaptchaCompat={false}
               onVerify={onHCaptchaChange}
-            /> */}
-          </Flex>
+            />
+          </Flex> */}
         </Box>
 
         <Button
