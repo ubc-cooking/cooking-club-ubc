@@ -22,12 +22,12 @@ const theme = extendTheme({
         color: "primary",
         background: "background",
       },
+      footer: {
+        background: "primary",
+      },
       "ol > li::marker": {
         fontWeight: "bold",
         mr: 10,
-      },
-      footer: {
-        background: "primary",
       },
     },
   },
