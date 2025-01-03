@@ -35,7 +35,7 @@ export default function Form() {
   });
 
   const inputStyle: InputProps = {
-    m: 1,
+    my: 1,
     p: 3,
     borderBottomColor: "primary",
     focusBorderColor: "primary",
@@ -68,7 +68,7 @@ export default function Form() {
   return (
     <Box width={{ base: "100%", lg: "50%" }}>
       <form onSubmit={handleSubmit(submitForm)}>
-        <Box backgroundColor="accent" padding={5} borderRadius={"3xl"}>
+        <Box background="accent" padding={5} borderRadius={"3xl"}>
           <Flex alignItems="center" position={"relative"}>
             <Text
               fontWeight="bold"
@@ -120,7 +120,7 @@ export default function Form() {
             size="md"
             placeholder="Your Message"
             {...register("message")}
-            background={"accent"}
+            background={"transparent"}
             height={180}
             resize={"none"}
             m={inputStyle.m}
