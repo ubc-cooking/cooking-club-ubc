@@ -19,11 +19,11 @@ export default function DesktopFooter() {
         maxWidth={{ base: "md", md: "2xl", lg: "5xl" }}
       >
         <GridItem
-          as={Flex}
+          display={"flex"}
           gap={1}
           rowSpan={3}
           colSpan={1}
-          direction={"column"}
+          flexDir={"column"}
           w={"100%"}
           h={"100%"}
           position={"relative"}
@@ -32,10 +32,10 @@ export default function DesktopFooter() {
         >
           {links.map((navLink) => (
             <Link
-              key={navLink.link}
+              key={navLink.path}
               as={NextLink}
-              href={navLink.link}
-              fontFamily={"heading"}  
+              href={`/${navLink.path}`}
+              fontFamily={"heading"}
               fontSize={{ base: "2xl", md: "3xl" }}
               color={"background"}
               width={"fit-content"}

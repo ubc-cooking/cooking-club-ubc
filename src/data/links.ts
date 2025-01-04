@@ -1,11 +1,11 @@
 export interface Links {
   label: string;
-  link: string;
+  path: string;
 }
 
 export const links: Links[] = [
-  { label: "HOME", link: "/" },
-  { label: "ABOUT", link: "/about" },
-  { label: "MENU", link: "/menu" },
-  { label: "CONTACT", link: "/contact" },
+  { label: "HOME", path: "" },
+  { label: "ABOUT", path: "about" },
+  { label: "MENU", path: "menu" },
+  { label: "CONTACT", path: "contact" },
 ];
