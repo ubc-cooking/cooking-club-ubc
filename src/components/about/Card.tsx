@@ -42,7 +42,7 @@ export default function Card(props: { person: number }) {
         tl.current?.reverse();
         setActive(false);
       }}
-      onClick={() => setActive(!active)}
+      onClick={() => setActive(true)}
       overflow={"hidden"}
     >
       <Image
@@ -68,6 +68,7 @@ export default function Card(props: { person: number }) {
         width={"100%"}
         zIndex={10}
         opacity={1}
+        onClick={() => setActive(false)}
       >
         <Center h={"100%"}>
           <Box textAlign={"center"}>
