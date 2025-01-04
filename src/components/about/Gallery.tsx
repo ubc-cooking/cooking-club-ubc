@@ -25,33 +25,37 @@ export default function Gallery() {
       height={"fit-content"}
       px={{ base: 1, sm: 10 }}
       templateColumns={"repeat(4,1fr)"}
-      templateRows={"repeat(4,1fr)"}
+      templateRows={{ base: "repeat(8,1fr)", md: "repeat(4,1fr)" }}
     >
-      <Item colSpan={2} rowSpan={1} h={{ base: 150, sm: 200, lg: 300 }}>
+      <Item
+        colSpan={{ base: 4, md: 2 }}
+        rowSpan={1}
+        h={{ base: 150, sm: 200, lg: 300 }}
+      >
         1
       </Item>
-      <Item colSpan={2} rowSpan={2}>
+      <Item colSpan={{ base: 4, md: 2 }} rowSpan={2}>
         2
       </Item>
-      <Item colSpan={1} rowSpan={1}>
+      <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         3
       </Item>
-      <Item colSpan={1} rowSpan={2}>
+      <Item colSpan={{ base: 2, md: 1 }} rowSpan={2}>
         4
       </Item>
-      <Item colSpan={1} rowSpan={1}>
+      <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         5
       </Item>
-      <Item colSpan={1} rowSpan={1}>
+      <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         6
       </Item>
-      <Item colSpan={1} rowSpan={1}>
+      <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         7
       </Item>
-      <Item colSpan={2} rowSpan={1}>
+      <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
         8
       </Item>
-      <Item colSpan={2} rowSpan={1}>
+      <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
         9
       </Item>
     </Grid>

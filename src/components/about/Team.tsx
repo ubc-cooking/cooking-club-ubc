@@ -1,21 +1,19 @@
 import {
-  Box,
   Container,
   Grid,
-  GridItem,
   Heading,
   Tab,
   TabIndicator,
   TabList,
   TabPanel,
   TabPanels,
-  Tabs,
-  Text,
+  Tabs
 } from "@chakra-ui/react";
+import Card from "./Card";
 
 const roles: string[] = ["core", "marketing", "cooks", "finance", "external"];
 
-const temp: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
+const people: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export default function Team() {
   return (
@@ -65,21 +63,8 @@ export default function Team() {
                   }}
                   gap={5}
                 >
-                  {temp.map((n, idx) => {
-                    return (
-                      <GridItem key={idx} colSpan={1} height={"fit-content"}>
-                        <Box
-                          height={{ base: 400, sm: 300 }}
-                          background={"white"}
-                          transition={".4s"}
-                          _hover={{ background: "lightgray" }}
-                        />
-                        <Text textAlign={"center"} p={2}>
-                          &quot;Most likely {role} to fly to space with a
-                          car&quot;
-                        </Text>
-                      </GridItem>
-                    );
+                  {people.map((person, idx) => {
+                    return <Card key={idx} person={person} />;
                   })}
                 </Grid>
               </TabPanel>
