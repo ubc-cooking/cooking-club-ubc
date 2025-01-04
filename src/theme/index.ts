@@ -21,6 +21,8 @@ const theme = extendTheme({
       body: {
         color: "primary",
         background: "background",
+        overflowX: "hidden",
+        position: "relative",
       },
       footer: {
         background: "primary",
