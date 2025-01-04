@@ -1,15 +1,20 @@
-import { Grid, GridItem, GridItemProps } from "@chakra-ui/react";
+import { BoxProps, Grid, GridItem, GridItemProps } from "@chakra-ui/react";
 import React from "react";
+import Image from "../Image";
 
 interface CustomItemProps extends GridItemProps {
   children: React.ReactNode;
+  isTall?: boolean;
 }
 
-const Item = ({ children, ...rest }: CustomItemProps) => {
+const Item = ({ children, isTall = false, ...rest }: CustomItemProps) => {
   return (
     <GridItem
+      position={"relative"}
       background={"white"}
       borderRadius={"2xl"}
+      overflow={"hidden"}
+      maxH={isTall ? "100%" : { base: 150, sm: 200, lg: 300 }}
       m={{ base: 1, md: 2 }}
       {...rest}
     >
@@ -19,6 +24,13 @@ const Item = ({ children, ...rest }: CustomItemProps) => {
 };
 
 export default function Gallery() {
+  const imageStyle: BoxProps = {
+    width: 1000,
+    height: 1000,
+    w: "100%",
+    h: "100%",
+    objectFit: "cover",
+  };
   return (
     <Grid
       w={"100%"}
@@ -27,21 +39,17 @@ export default function Gallery() {
       templateColumns={"repeat(4,1fr)"}
       templateRows={{ base: "repeat(8,1fr)", md: "repeat(4,1fr)" }}
     >
-      <Item
-        colSpan={{ base: 4, md: 2 }}
-        rowSpan={1}
-        h={{ base: 150, sm: 200, lg: 300 }}
-      >
-        1
+      <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
+        <Image src={"/gallery/all.webp"} alt="all" {...imageStyle} />
       </Item>
-      <Item colSpan={{ base: 4, md: 2 }} rowSpan={2}>
-        2
+      <Item colSpan={{ base: 4, md: 2 }} rowSpan={2} isTall>
+        <Image src={"/gallery/yachaejeong.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         3
       </Item>
-      <Item colSpan={{ base: 2, md: 1 }} rowSpan={2}>
-        4
+      <Item colSpan={{ base: 2, md: 1 }} rowSpan={2} isTall>
+        <Image src={"/gallery/sushi-bake.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         5
@@ -53,7 +61,7 @@ export default function Gallery() {
         7
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
-        8
+        <Image src={"/gallery/taco.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
         9
