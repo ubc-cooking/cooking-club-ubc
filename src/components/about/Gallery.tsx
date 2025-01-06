@@ -14,7 +14,7 @@ const Item = ({ children, isTall = false, ...rest }: CustomItemProps) => {
       background={"white"}
       borderRadius={"2xl"}
       overflow={"hidden"}
-      maxH={isTall ? "100%" : { base: 150, sm: 200, lg: 300 }}
+      maxH={isTall ? "100%" : { base: "100%", lg: 300 }}
       m={{ base: 1, md: 2 }}
       {...rest}
     >
