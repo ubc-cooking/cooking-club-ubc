@@ -10,16 +10,32 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FaAngleRight } from "react-icons/fa";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+
+const schema = z.object({
+  email: z.string().email().min(1),
+});
+
+type FormData = z.infer<typeof schema>;
 
 export default function Newsletter() {
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
-  } = useForm<{ email: string }>();
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: { email: string }) => {
-    //do nothing
+  const onSubmit = async ({ email }: FormData) => {
+    console.log(email);
+    const data = await axios.post("/api/newsletter", { email }).catch((e) => {
+      if (axios.isAxiosError(e)) {
+        console.log("fail to subscribe: " + e);
+      }
+    });
+
+    console.log(data);
   };
 
   return (
