@@ -12,9 +12,10 @@ import { useForm } from "react-hook-form";
 import { FaAngleRight } from "react-icons/fa";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
 const schema = z.object({
-  email: z.string().email(),
+  email: z.string().email().min(1),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -27,8 +28,14 @@ export default function Newsletter() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async ({ email }: FormData) => {
-    //do nothing
     console.log(email);
+    const data = await axios.post("/api/newsletter", { email }).catch((e) => {
+      if (axios.isAxiosError(e)) {
+        console.log("fail to subscribe: " + e);
+      }
+    });
+
+    console.log(data);
   };
 
   return (
