@@ -1,3 +1,4 @@
+import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import RootProviders from "@/components/Providers";
@@ -15,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ minHeight: "fit-content" }}>
+      <body>
         <RootProviders>
           <Navbar />
           {children}
