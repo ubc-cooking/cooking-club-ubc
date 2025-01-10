@@ -7,11 +7,17 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-  Tabs
+  Tabs,
 } from "@chakra-ui/react";
 import Card from "./Card";
 
-const roles: string[] = ["core", "marketing", "cooks", "finance", "external"];
+const roles: string[] = [
+  "admin",
+  "cooking",
+  "marketing",
+  "partnership",
+  "internal",
+];
 
 const people: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -36,7 +42,7 @@ export default function Team() {
                 fontWeight={"bold"}
                 px={0}
                 py={1}
-                fontSize={{ base: "2xs", sm: "md" }}
+                fontSize={{ base: 8.5, sm: "xs", md: "md" }}
                 mx={{ base: 1.5, sm: 3, md: 5 }}
               >
                 {role.toUpperCase()}
