@@ -1,6 +1,17 @@
-import { BoxProps, Grid, GridItem, GridItemProps } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  Center,
+  Grid,
+  GridItem,
+  GridItemProps,
+  Heading,
+  LinkBox,
+  LinkOverlay,
+} from "@chakra-ui/react";
 import React from "react";
 import Image from "../Image";
+import NextLink from "next/link";
 
 interface CustomItemProps extends GridItemProps {
   children: React.ReactNode;
@@ -46,25 +57,53 @@ export default function Gallery() {
         <Image src={"/gallery/yachaejeong.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        3
+        <Image src={"/gallery/pan-dumplings.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={2} isTall>
         <Image src={"/gallery/sushi-bake.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        5
+        <Image src={"/gallery/sushi-crowd.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        6
+        <LinkBox
+          as={Center}
+          position={"relative"}
+          w={"100%"}
+          h={"100%"}
+          textAlign={"center"}
+          flexDir={"column"}
+          p={2}
+        >
+          <Image
+            src={"/gallery/instagram.svg"}
+            alt="all"
+            width={10}
+            height={10}
+            w={"100%"}
+            h={"70%"}
+            objectFit={"contain"}
+            position={"relative"}
+          />
+          <Heading fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
+            <LinkOverlay
+              as={NextLink}
+              href="https://www.instagram.com/cookingclububc"
+              target="_blank"
+            >
+              Follow Us!
+            </LinkOverlay>
+          </Heading>
+        </LinkBox>
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        7
+        <Image src={"/gallery/dumplings.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
         <Image src={"/gallery/taco.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
-        9
+        <Image src={"/gallery/crowd.webp"} alt="all" {...imageStyle} />
       </Item>
     </Grid>
   );
