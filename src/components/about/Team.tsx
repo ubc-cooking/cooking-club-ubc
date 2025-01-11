@@ -1,8 +1,6 @@
 import {
-  Box,
   Container,
   Grid,
-  GridItem,
   Heading,
   Tab,
   TabIndicator,
@@ -10,12 +8,18 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Text,
 } from "@chakra-ui/react";
+import Card from "./Card";
 
-const roles: string[] = ["core", "marketing", "cooks", "finance", "external"];
+const roles: string[] = [
+  "admin",
+  "cooking",
+  "marketing",
+  "partnership",
+  "internal",
+];
 
-const temp: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
+const people: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export default function Team() {
   return (
@@ -38,7 +42,7 @@ export default function Team() {
                 fontWeight={"bold"}
                 px={0}
                 py={1}
-                fontSize={{ base: "2xs", sm: "md" }}
+                fontSize={{ base: 8.5, sm: "xs", md: "md" }}
                 mx={{ base: 1.5, sm: 3, md: 5 }}
               >
                 {role.toUpperCase()}
@@ -65,21 +69,8 @@ export default function Team() {
                   }}
                   gap={5}
                 >
-                  {temp.map((n, idx) => {
-                    return (
-                      <GridItem key={idx} colSpan={1} height={"fit-content"}>
-                        <Box
-                          height={{ base: 400, sm: 300 }}
-                          background={"white"}
-                          transition={".4s"}
-                          _hover={{ background: "lightgray" }}
-                        />
-                        <Text textAlign={"center"} p={2}>
-                          &quot;Most likely {role} to fly to space with a
-                          car&quot;
-                        </Text>
-                      </GridItem>
-                    );
+                  {people.map((person, idx) => {
+                    return <Card key={idx} person={person} />;
                   })}
                 </Grid>
               </TabPanel>

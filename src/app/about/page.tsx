@@ -7,8 +7,9 @@ export default function About() {
     <Box height={"fit-content"}>
       <Heading
         color={"primary"}
-        fontSize={"6xl"}
+        fontSize={{ base: "4xl", md: "6xl" }}
         mt={40}
+        mb={20}
         w={"100%"}
         textAlign={"center"}
       >
