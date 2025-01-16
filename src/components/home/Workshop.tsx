@@ -52,25 +52,27 @@ export default function Workshop() {
           </Heading>
           <Text fontSize={{ base: "md", md: "xl" }} fontWeight={"bold"}>
             DON&apos;T WORRY CHECK OUT OUR{" "}
-            <chakra.span fontFamily={"heading"}>RECIPES</chakra.span> PAGE
+            <chakra.span fontFamily={"heading"}>MENU</chakra.span> PAGE
           </Text>
-          <Button
-            size={"lg"}
-            variant={"outline"}
-            borderColor={"secondary"}
-            color={"secondary"}
-            borderRadius={"full"}
-            fontFamily={"heading"}
-            fontWeight={"regular"}
-            border={"2px"}
-            mt={8}
-            _hover={{
-              background: "secondary",
-              color: "background",
-            }}
-          >
-            RECIPES
-          </Button>
+          <NextLink href={"/menu"} passHref>
+            <Button
+              size={"lg"}
+              variant={"outline"}
+              borderColor={"secondary"}
+              color={"secondary"}
+              borderRadius={"full"}
+              fontFamily={"heading"}
+              fontWeight={"regular"}
+              border={"2px"}
+              mt={8}
+              _hover={{
+                background: "secondary",
+                color: "background",
+              }}
+            >
+              MENU
+            </Button>
+          </NextLink>
         </Box>
       </Center>
     </Box>
