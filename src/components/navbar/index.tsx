@@ -12,6 +12,7 @@ import {
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import NextLink from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -20,7 +21,7 @@ import Hamburger from "./Hamburger";
 import JoinBtn from "./JoinBtn";
 import Menu from "./Menu";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Navbar() {
   const [active, setActive] = useState<boolean>(false);
@@ -82,8 +83,25 @@ export default function Navbar() {
     active ? tl.current?.play() : tl.current?.reverse();
   }, [active]);
 
+  const showAnim = gsap
+    .from(".navbar", {
+      yPercent: -100,
+      paused: true,
+      duration: 0.2,
+    })
+    .progress(1);
+
+  ScrollTrigger.create({
+    start: "top top",
+    end: "max",
+    onUpdate: (self) => {
+      self.direction === -1 ? showAnim.play() : showAnim.reverse();
+    },
+  });
+
   return (
     <Flex
+      className="navbar"
       justifyContent={"space-between"}
       alignItems={"center"}
       position={"fixed"}
