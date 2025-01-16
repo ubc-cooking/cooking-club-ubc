@@ -1,30 +1,6 @@
 import { Box, Divider, Heading, Text, Flex, Center } from "@chakra-ui/react";
 import Image from "../Image";
-
-const events = [
-  {
-    title: "Title of event",
-    imagePath: "/home/workshop.webp",
-    date: "4",
-    month: "JUNE",
-    location: "Hell's Kitchen",
-    time: "March 23, 2030 10:30-12:30",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    registerLink: "",
-  },
-  {
-    title: "Title of event",
-    imagePath: "/home/workshop.webp",
-    date: "4",
-    month: "JUNE",
-    location: "Hell's Kitchen",
-    time: "March 23, 2030 10:30-12:30",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    registerLink: "",
-  },
-];
+import { upcomingEvents } from "@/data";
 
 export default function UpcomingEvent() {
   return (
@@ -32,7 +8,7 @@ export default function UpcomingEvent() {
       <Heading fontFamily={"body"} py={5}>
         Stay Tuned for More!
       </Heading>
-      {events.map((event, idx) => {
+      {upcomingEvents.slice(1).map((event, idx) => {
         return (
           <Box key={idx} textAlign={"center"}>
             <Divider
