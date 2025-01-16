@@ -1,5 +1,6 @@
 "use client";
 
+import { MemberType } from "@/data";
 import { Box, Center, GridItem, Text } from "@chakra-ui/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -8,7 +9,7 @@ import Image from "../Image";
 
 gsap.registerPlugin(useGSAP);
 
-export default function Card(props: { person: number }) {
+export default function Card(props: { person: MemberType }) {
   const { person } = props;
   const [active, setActive] = useState<boolean>(false);
 
@@ -56,7 +57,7 @@ export default function Card(props: { person: number }) {
         // _hover={{ opacity: 0.7, transition: "0.2s" }}
       />
       <Text textAlign={"center"} p={2}>
-        &quot;Most likely to fly to space with {person} car&quot;
+        &quot;Most likely to fly to space with car&quot;
       </Text>
       <Box
         ref={overlay}
@@ -72,9 +73,9 @@ export default function Card(props: { person: number }) {
       >
         <Center h={"100%"}>
           <Box textAlign={"center"}>
-            <Text fontWeight={"bold"}>John Snow</Text>
+            <Text fontWeight={"bold"}>{person.name}</Text>
             <Text>2nd Year</Text>
-            <Text>Events Director</Text>
+            <Text w={"100%"}>{person.role}</Text>
           </Box>
         </Center>
       </Box>
