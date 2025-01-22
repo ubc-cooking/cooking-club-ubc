@@ -1,3 +1,4 @@
+import { teamData } from "@/data";
 import {
   Container,
   Grid,
@@ -9,8 +10,9 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
+import BackgroundImages from "./BackgroundImages";
 import Card from "./Card";
-import { teamData } from "@/data";
+import { relative } from "path";
 
 const roles: string[] = [
   "admin",
@@ -22,7 +24,8 @@ const roles: string[] = [
 
 export default function Team() {
   return (
-    <Container maxW={"4xl"}>
+    <Container maxW={"4xl"} position={"relative"}>
+      <BackgroundImages />
       <Heading textAlign={"center"} mt={20} mb={10}>
         Meet the Team!
       </Heading>
