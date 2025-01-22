@@ -57,7 +57,7 @@ export default function MobileFooter() {
         color={"background"}
         fontSize={"sm"}
       >
-        UBC Cooking Club &copy; 2024
+        UBC Cooking Club &copy; 2025
       </Text>
     </>
   );

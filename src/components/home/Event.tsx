@@ -5,7 +5,7 @@ import { upcomingEvents } from "@/data";
 export default function Event() {
   const curr = upcomingEvents[0];
   return (
-    <Box pt={10} background={"background"}>
+    <Box pt={10} position={"relative"}>
       <Heading
         position={"relative"}
         fontSize={{ base: "4xl", sm: "6xl" }}

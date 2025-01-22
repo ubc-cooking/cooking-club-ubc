@@ -13,7 +13,16 @@ import { faqData } from "@/data";
 
 export default function FAQ() {
   return (
-    <Container my={10}>
+    <Container position={"relative"} my={10}>
+      <Image
+        src={"/home/icecream.svg"}
+        alt=""
+        width={300}
+        height={400}
+        position={"absolute"}
+        bottom={0}
+        left={-80}
+      />
       <Box position={"relative"}>
         <Heading fontFamily={"body"}>FAQ</Heading>
         <Image
