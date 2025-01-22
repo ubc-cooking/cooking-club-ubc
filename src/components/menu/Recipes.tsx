@@ -24,7 +24,7 @@ export default function Recipes() {
           >
             <LinkOverlay as={NextLink} href={`/menu/${card.id}`} />
             <Image
-              src={"/home/workshop.webp"}
+              src={`/menu/workshops/${card.id}.webp`}
               alt="burger"
               width={400}
               height={200}

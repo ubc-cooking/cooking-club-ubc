@@ -82,7 +82,7 @@ export default async function Recipe({
           position={"relative"}
         >
           <Image
-            src={"/home/workshop.webp"}
+            src={`/menu/workshops/${menu.id}.webp`}
             alt="food"
             width={500}
             height={300}
