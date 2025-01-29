@@ -4,13 +4,15 @@ import { MemberType } from "@/data";
 import { Box, Center, GridItem, Text } from "@chakra-ui/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Image from "../Image";
 
 gsap.registerPlugin(useGSAP);
 
 export default function Card(props: { person: MemberType }) {
   const { person } = props;
+  const imgPath = person.name.toLocaleLowerCase().split(" ").join("");
+
   const [active, setActive] = useState<boolean>(false);
 
   const overlay = useRef<HTMLDivElement>(null);
@@ -46,16 +48,22 @@ export default function Card(props: { person: MemberType }) {
       onClick={() => setActive(!active)}
       overflow={"hidden"}
     >
-      <Image
-        src={"/placeholder.svg"}
-        width={500}
-        height={500}
-        alt="person"
-        w={"100%"}
-        h={{ base: 400, sm: 300 }}
-        objectFit={"cover"}
-        // _hover={{ opacity: 0.7, transition: "0.2s" }}
-      />
+      <Suspense>
+        <Image
+          src={`${
+            !person.hasImage
+              ? "/graphics/onion.svg"
+              : `/about/team/${imgPath}.webp`
+          }`}
+          width={500}
+          height={500}
+          alt="person"
+          w={"100%"}
+          h={{ base: 400, sm: 300 }}
+          objectFit={!person.hasImage ? "contain" : "cover"}
+          // _hover={{ opacity: 0.7, transition: "0.2s" }}
+        />
+      </Suspense>
       <Text textAlign={"center"} p={2}>
         &quot;Most likely to fly to space with car&quot;
       </Text>

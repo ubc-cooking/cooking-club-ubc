@@ -25,7 +25,7 @@ export const upcomingEvents: EventType[] = [
   },
   {
     title: "Workshop TBA",
-    imagePath: "/placeholder.svg",
+    imagePath: "/graphics/tomato.svg",
     date: "14",
     month: "FEB",
     location: "Arbutus Collegium (6488 University Blvd)",
@@ -37,7 +37,7 @@ export const upcomingEvents: EventType[] = [
   },
   {
     title: "Workshop TBA",
-    imagePath: "/placeholder.svg",
+    imagePath: "/graphics/taco.svg",
     date: "28",
     month: "FEB",
     location: "FNH 130",

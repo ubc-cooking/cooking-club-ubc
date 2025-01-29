@@ -15,7 +15,7 @@ export default function BackgroundImages() {
         zIndex={-1}
       /> */}
       <Image
-        src="/gallery/stars.svg"
+        src="/about/gallery/stars.svg"
         alt=""
         width={250}
         height={250}

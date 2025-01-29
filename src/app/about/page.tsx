@@ -17,7 +17,7 @@ export default function About() {
         Get To Know More!
       </Heading>
       <Image
-        src={"/gallery/arrow.svg"}
+        src={"/about/gallery/arrow.svg"}
         alt=""
         width={150}
         height={150}

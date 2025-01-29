@@ -36,7 +36,7 @@ export default function Landing() {
           color={"background"}
           textAlign={"center"}
         >
-          Cooking Club UBC
+          UBC Cooking Club
         </Heading>
       </Center>
       <Box
