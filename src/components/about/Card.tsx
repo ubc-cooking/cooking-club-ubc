@@ -47,6 +47,7 @@ export default function Card(props: { person: MemberType }) {
       }}
       onClick={() => setActive(!active)}
       overflow={"hidden"}
+      outline={"2px solid"}
     >
       <Suspense>
         <Image
@@ -61,12 +62,14 @@ export default function Card(props: { person: MemberType }) {
           w={"100%"}
           h={{ base: 400, sm: 300 }}
           objectFit={!person.hasImage ? "contain" : "cover"}
+          outline={"2px"}
+          outlineColor={"primary"}
           // _hover={{ opacity: 0.7, transition: "0.2s" }}
         />
       </Suspense>
-      <Text textAlign={"center"} p={2}>
+      {/* <Text textAlign={"center"} p={2}>
         &quot;Most likely to fly to space with car&quot;
-      </Text>
+      </Text> */}
       <Box
         ref={overlay}
         className="overlay"
@@ -82,7 +85,7 @@ export default function Card(props: { person: MemberType }) {
         <Center h={"100%"}>
           <Box textAlign={"center"}>
             <Text fontWeight={"bold"}>{person.name}</Text>
-            <Text>2nd Year</Text>
+            {/* <Text>2nd Year</Text> */}
             <Text w={"100%"}>{person.role}</Text>
           </Box>
         </Center>
