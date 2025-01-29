@@ -83,7 +83,6 @@ export default function Event() {
           >
             {curr.title}
           </Heading>
-          <Text my={5}>{curr.description}</Text>
           <Text mt={2}>
             <strong>WHERE:</strong> {curr.location}
           </Text>
