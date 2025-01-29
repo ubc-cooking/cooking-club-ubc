@@ -9,6 +9,7 @@ import {
   InputProps,
   Text,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
@@ -34,6 +35,8 @@ export default function Form() {
     resolver: zodResolver(schema),
   });
 
+  const toast = useToast();
+
   const inputStyle: InputProps = {
     my: 1,
     p: 3,
@@ -50,8 +53,8 @@ export default function Form() {
   //   };
 
   async function submitForm({ email, subject, message }: FormData) {
-    await axios
-      .post(
+    toast.promise(
+      axios.post(
         "/api/email",
         { email, subject, message },
         {
@@ -59,10 +62,16 @@ export default function Form() {
             "Content-Type": "application/json",
           },
         }
-      )
-      .catch((e) => {
-        console.log("Error = " + e);
-      });
+      ),
+      {
+        success: { title: "Message Sent!", description: "Looks great" },
+        error: {
+          title: "Fail to send!",
+          description: "Something is wrong",
+        },
+        loading: { title: "Sending", description: "Please wait" },
+      }
+    );
   }
 
   return (

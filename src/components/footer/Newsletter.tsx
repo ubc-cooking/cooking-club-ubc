@@ -7,6 +7,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FaAngleRight } from "react-icons/fa";
@@ -27,15 +28,14 @@ export default function Newsletter() {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = async ({ email }: FormData) => {
-    console.log(email);
-    const data = await axios.post("/api/newsletter", { email }).catch((e) => {
-      if (axios.isAxiosError(e)) {
-        console.log("fail to subscribe: " + e);
-      }
-    });
+  const toast = useToast();
 
-    console.log(data);
+  const onSubmit = async ({ email }: FormData) => {
+    toast.promise(axios.post("/api/newsletter", { email }), {
+      success: { title: "Newsletter Subcribed!", description: "Looks great" },
+      error: { title: "Fail to Subscribe!", description: "Something is wrong" },
+      loading: { title: "Subscribing", description: "Please wait" },
+    });
   };
 
   return (

@@ -30,14 +30,17 @@ export async function POST(req: NextRequest) {
     );
 
     if (response.status >= 400) {
-      return NextResponse.json({
-        error: `There was an error subscribing to the newsletter.`,
-        status: 400,
-      });
+      return NextResponse.json(
+        { message: "Fail to subscribe" },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json("Subscribed", { status: 200 });
-  } catch (e) {
-    return NextResponse.json({ error: "Something is wrong", status: 400 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Something is wrong", error },
+      { status: 400 }
+    );
   }
 }
