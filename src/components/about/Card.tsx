@@ -47,7 +47,7 @@ export default function Card(props: { person: MemberType }) {
       overflow={"hidden"}
     >
       <Image
-        src={"/home/workshop.webp"}
+        src={"/placeholder.svg"}
         width={500}
         height={500}
         alt="person"

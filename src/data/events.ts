@@ -13,7 +13,7 @@ interface EventType {
 export const upcomingEvents: EventType[] = [
   {
     title: "Workshop TBA",
-    imagePath: "/home/workshop.webp",
+    imagePath: "/placeholder.svg",
     date: "31",
     month: "JAN",
     location: "FNH 130",
@@ -25,7 +25,7 @@ export const upcomingEvents: EventType[] = [
   },
   {
     title: "Workshop TBA",
-    imagePath: "/home/workshop.webp",
+    imagePath: "/placeholder.svg",
     date: "14",
     month: "FEB",
     location: "Arbutus Collegium (6488 University Blvd)",
@@ -37,7 +37,7 @@ export const upcomingEvents: EventType[] = [
   },
   {
     title: "Workshop TBA",
-    imagePath: "/home/workshop.webp",
+    imagePath: "/placeholder.svg",
     date: "28",
     month: "FEB",
     location: "FNH 130",

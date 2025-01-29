@@ -43,13 +43,13 @@ export default function Event() {
         <Box
           position={"relative"}
           width={{ base: "100%", md: 400, lg: "60%" }}
-          height={{ base: 300, md: "100%" }}
+          height={{ base: 300, md: 450 }}
         >
           <Image
             src={curr.imagePath}
             alt="event"
-            width={1000}
-            height={1000}
+            width={200}
+            height={200}
             objectFit={"cover"}
             w={"100%"}
             h={"100%"}
