@@ -12,7 +12,7 @@ interface EventType {
 
 export const upcomingEvents: EventType[] = [
   {
-    title: "Fried Chicken Workshop",
+    title: "Workshop TBA",
     imagePath: "/home/workshop.webp",
     date: "31",
     month: "JAN",
@@ -24,7 +24,7 @@ export const upcomingEvents: EventType[] = [
     isOpen: false,
   },
   {
-    title: "Pizza Workshop + Chocolate Strawberries",
+    title: "Workshop TBA",
     imagePath: "/home/workshop.webp",
     date: "14",
     month: "FEB",

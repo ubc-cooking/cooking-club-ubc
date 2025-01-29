@@ -77,7 +77,7 @@ export default async function Recipe({
       <VStack w={{ md: "50%" }} alignItems={"start"}>
         <Box
           aspectRatio={1 / 1}
-          width={"100%"}
+          maxW={"100%"}
           rounded={"xl"}
           position={"relative"}
         >
