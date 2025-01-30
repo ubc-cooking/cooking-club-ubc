@@ -1,3 +1,4 @@
+import { teamData } from "@/data";
 import {
   Container,
   Grid,
@@ -9,7 +10,9 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
+import BackgroundImages from "./BackgroundImages";
 import Card from "./Card";
+import { relative } from "path";
 
 const roles: string[] = [
   "admin",
@@ -19,11 +22,10 @@ const roles: string[] = [
   "internal",
 ];
 
-const people: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
-
 export default function Team() {
   return (
-    <Container maxW={"4xl"}>
+    <Container maxW={"4xl"} position={"relative"}>
+      <BackgroundImages />
       <Heading textAlign={"center"} mt={20} mb={10}>
         Meet the Team!
       </Heading>
@@ -59,6 +61,7 @@ export default function Team() {
         />
         <TabPanels>
           {roles.map((role) => {
+            const team = teamData.filter((i) => i.team == role);
             return (
               <TabPanel key={role}>
                 <Grid
@@ -69,7 +72,7 @@ export default function Team() {
                   }}
                   gap={5}
                 >
-                  {people.map((person, idx) => {
+                  {team[0].members.map((person, idx) => {
                     return <Card key={idx} person={person} />;
                   })}
                 </Grid>

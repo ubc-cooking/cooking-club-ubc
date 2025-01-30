@@ -1,5 +1,6 @@
 import Image from "@/components/Image";
 import BulletIcons from "@/components/menu/BulletIcons";
+import { menuData } from "@/data";
 import {
   Box,
   Container,
@@ -14,11 +15,8 @@ import {
 } from "@chakra-ui/react";
 
 export async function generateStaticParams() {
-  // const posts = await fetch("https://.../posts").then((res) => res.json());
-  const posts = ["a", "b", "c"];
-
-  return posts.map((post) => ({
-    slug: post,
+  return menuData.map((post) => ({
+    slug: post.id,
   }));
 }
 
@@ -28,6 +26,8 @@ export default async function Recipe({
   params: Promise<{ id: string }>;
 }) {
   const id = (await params).id;
+
+  const menu = menuData.filter((data) => data.id === id)[0];
 
   return (
     <Container
@@ -42,25 +42,19 @@ export default async function Recipe({
     >
       <VStack w={{ md: "50%" }} alignItems={"start"} gap={10}>
         <Heading fontFamily={"body"} fontSize={"5xl"}>
-          Canadian waffles with salt {id}
+          {menu.title}
         </Heading>
         <Text fontSize={"lg"} lineHeight={2}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          {menu.description}
         </Text>
         <Heading fontFamily={"body"} fontSize={"xl"} mt={10}>
           How to Make it
         </Heading>
         <OrderedList fontSize={"md"}>
-          {[1, 2, 3, 4].map((idx) => {
+          {menu.steps.map((step, idx) => {
             return (
               <ListItem key={idx} position={"relative"} pl={2} py={2}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                maxime, amet voluptatem nam facilis perspiciatis nihil nesciunt
-                beatae autem cum sit aut odit eos officiis adipisci consectetur
-                quis deserunt tempora!
+                {step}
                 <Icon
                   viewBox="0 0 200 200"
                   boxSize={8}
@@ -83,12 +77,12 @@ export default async function Recipe({
       <VStack w={{ md: "50%" }} alignItems={"start"}>
         <Box
           aspectRatio={1 / 1}
-          width={"100%"}
+          maxW={"100%"}
           rounded={"xl"}
           position={"relative"}
         >
           <Image
-            src={"/home/workshop.webp"}
+            src={`/menu/workshops/${menu.id}.webp`}
             alt="food"
             width={500}
             height={300}
@@ -103,11 +97,11 @@ export default async function Recipe({
             Ingredients
           </Heading>
           <List fontSize={"md"} fontWeight={"regular"}>
-            {[1, 2, 3, 4].map((idx) => {
+            {menu.ingredients.map((ingredient, idx) => {
               return (
                 <ListItem key={idx} position={"relative"} pl={2} py={2}>
                   <BulletIcons />
-                  260g turkey mince
+                  {ingredient}
                 </ListItem>
               );
             })}

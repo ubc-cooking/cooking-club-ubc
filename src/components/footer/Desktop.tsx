@@ -4,6 +4,7 @@ import NextLink from "next/link";
 import Image from "../Image";
 import Socials from "../Socials";
 import Newsletter from "./Newsletter";
+import JoinBtn from "../navbar/JoinBtn";
 
 export default function DesktopFooter() {
   return (
@@ -63,6 +64,7 @@ export default function DesktopFooter() {
         <GridItem rowSpan={1} />
         <GridItem rowSpan={2}>
           <Socials width={"50%"} gap={5} height={"100%"} />
+          {/* <JoinBtn /> */}
         </GridItem>
       </Grid>
       <Text

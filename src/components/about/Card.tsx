@@ -1,15 +1,18 @@
 "use client";
 
+import { MemberType } from "@/data";
 import { Box, Center, GridItem, Text } from "@chakra-ui/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Image from "../Image";
 
 gsap.registerPlugin(useGSAP);
 
-export default function Card(props: { person: number }) {
+export default function Card(props: { person: MemberType }) {
   const { person } = props;
+  const imgPath = person.name.toLocaleLowerCase().split(" ").join("");
+
   const [active, setActive] = useState<boolean>(false);
 
   const overlay = useRef<HTMLDivElement>(null);
@@ -44,20 +47,29 @@ export default function Card(props: { person: number }) {
       }}
       onClick={() => setActive(!active)}
       overflow={"hidden"}
+      outline={"2px solid"}
     >
-      <Image
-        src={"/home/workshop.webp"}
-        width={500}
-        height={500}
-        alt="person"
-        w={"100%"}
-        h={{ base: 400, sm: 300 }}
-        objectFit={"cover"}
-        // _hover={{ opacity: 0.7, transition: "0.2s" }}
-      />
-      <Text textAlign={"center"} p={2}>
-        &quot;Most likely to fly to space with {person} car&quot;
-      </Text>
+      <Suspense>
+        <Image
+          src={`${
+            !person.hasImage
+              ? "/graphics/onion.svg"
+              : `/about/team/${imgPath}.webp`
+          }`}
+          width={500}
+          height={500}
+          alt="person"
+          w={"100%"}
+          h={{ base: 400, sm: 300 }}
+          objectFit={!person.hasImage ? "contain" : "cover"}
+          outline={"2px"}
+          outlineColor={"primary"}
+          // _hover={{ opacity: 0.7, transition: "0.2s" }}
+        />
+      </Suspense>
+      {/* <Text textAlign={"center"} p={2}>
+        &quot;Most likely to fly to space with car&quot;
+      </Text> */}
       <Box
         ref={overlay}
         className="overlay"
@@ -72,9 +84,9 @@ export default function Card(props: { person: number }) {
       >
         <Center h={"100%"}>
           <Box textAlign={"center"}>
-            <Text fontWeight={"bold"}>John Snow</Text>
-            <Text>2nd Year</Text>
-            <Text>Events Director</Text>
+            <Text fontWeight={"bold"}>{person.name}</Text>
+            {/* <Text>2nd Year</Text> */}
+            <Text w={"100%"}>{person.role}</Text>
           </Box>
         </Center>
       </Box>

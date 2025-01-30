@@ -9,43 +9,20 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Image from "../Image";
-
-const datas = [
-  {
-    question: "What is the pythagoras theorem?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    question: "What is the pythagoras theorem?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    question: "What is the pythagoras theorem?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    question: "What is the pythagoras theorem?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    question: "What is the pythagoras theorem?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    question: "What is the pythagoras theorem?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-];
+import { faqData } from "@/data";
 
 export default function FAQ() {
   return (
-    <Container my={10}>
+    <Container position={"relative"} my={10}>
+      <Image
+        src={"/home/icecream.svg"}
+        alt=""
+        width={300}
+        height={400}
+        position={"absolute"}
+        bottom={0}
+        left={-80}
+      />
       <Box position={"relative"}>
         <Heading fontFamily={"body"}>FAQ</Heading>
         <Image
@@ -60,7 +37,7 @@ export default function FAQ() {
         />
       </Box>
       <Accordion my={7}>
-        {datas.map((data, idx) => (
+        {faqData.map((data, idx) => (
           <AccordionItem
             key={idx}
             background={"accent"}

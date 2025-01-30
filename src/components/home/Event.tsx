@@ -1,22 +1,11 @@
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "../Image";
-
-const event = {
-  title: "Title of event",
-  imagePath: "/home/workshop.webp",
-  date: "4",
-  month: "JUNE",
-  location: "Hell's Kitchen",
-  time: "March 23, 2030 10:30-12:30",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  registerLink: "",
-  isOpen: true,
-};
+import { upcomingEvents } from "@/data";
 
 export default function Event() {
+  const curr = upcomingEvents[0];
   return (
-    <Box pt={10} background={"background"}>
+    <Box pt={10} position={"relative"}>
       <Heading
         position={"relative"}
         fontSize={{ base: "4xl", sm: "6xl" }}
@@ -41,23 +30,26 @@ export default function Event() {
         </span>
       </Heading>
       <Flex
+        position={"relative"}
         my={10}
         mx={{ base: "5%", md: "10%" }}
         direction={{ base: "column", md: "row" }}
         borderRadius={"lg"}
         overflow={"hidden"}
         boxShadow={"xl"}
+        height={{ base: "fit-content" }}
+        alignItems={"stretch"}
       >
         <Box
-          width={{ base: "100%", md: 400, lg: "60%" }}
-          height={{ base: 300, md: 460 }}
           position={"relative"}
+          width={{ base: "100%", md: 400, lg: "60%" }}
+          height={{ base: 300, md: 450 }}
         >
           <Image
-            src={event.imagePath}
+            src={curr.imagePath}
             alt="event"
-            width={1000}
-            height={1000}
+            width={200}
+            height={200}
             objectFit={"cover"}
             w={"100%"}
             h={"100%"}
@@ -73,36 +65,35 @@ export default function Event() {
             p={3}
           >
             <Heading fontStyle={"regular"} fontSize={"5xl"}>
-              {event.date}
+              {curr.date}
             </Heading>
-            <Text fontWeight={"bold"}>{event.month}</Text>
+            <Text fontWeight={"bold"}>{curr.month}</Text>
           </Box>
         </Box>
         <Box
           width={{ base: "100%", md: 400, lg: "40%" }}
-          height={{ base: "fit-content", md: 460 }}
           background={"accent"}
-          p={5}
+          px={5}
+          py={2}
         >
           <Heading
             fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-            my={5}
+            my={3}
             fontWeight={"regular"}
           >
-            {event.title}
+            {curr.title}
           </Heading>
-          <Text my={5}>{event.description}</Text>
           <Text mt={2}>
-            <strong>WHERE:</strong> {event.location}
+            <strong>WHERE:</strong> {curr.location}
           </Text>
           <Text mb={2}>
-            <strong>WHEN:</strong> {event.time}
+            <strong>WHEN:</strong> {curr.time}
           </Text>
           <Text>
             <strong>Got Questions?</strong> <br />
             Contact us at <u>ubccookingclubinfo@gmail.com</u>
           </Text>
-          {event.isOpen ? (
+          {curr.isOpen ? (
             <Button
               size={"md"}
               mt={3}

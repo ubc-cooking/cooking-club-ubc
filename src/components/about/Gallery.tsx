@@ -51,19 +51,35 @@ export default function Gallery() {
       templateRows={{ base: "repeat(8,1fr)", md: "repeat(4,1fr)" }}
     >
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
-        <Image src={"/gallery/all.webp"} alt="all" {...imageStyle} />
+        <Image src={"/about/gallery/all.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={2} isTall>
-        <Image src={"/gallery/yachaejeong.webp"} alt="all" {...imageStyle} />
+        <Image
+          src={"/about/gallery/yachaejeong.webp"}
+          alt="all"
+          {...imageStyle}
+        />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        <Image src={"/gallery/pan-dumplings.webp"} alt="all" {...imageStyle} />
+        <Image
+          src={"/about/gallery/pan-dumplings.webp"}
+          alt="all"
+          {...imageStyle}
+        />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={2} isTall>
-        <Image src={"/gallery/sushi-bake.webp"} alt="all" {...imageStyle} />
+        <Image
+          src={"/about/gallery/sushi-bake.webp"}
+          alt="all"
+          {...imageStyle}
+        />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        <Image src={"/gallery/sushi-crowd.webp"} alt="all" {...imageStyle} />
+        <Image
+          src={"/about/gallery/sushi-crowd.webp"}
+          alt="all"
+          {...imageStyle}
+        />
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
         <LinkBox
@@ -76,7 +92,7 @@ export default function Gallery() {
           p={2}
         >
           <Image
-            src={"/gallery/instagram.svg"}
+            src={"/about/gallery/instagram.svg"}
             alt="all"
             width={10}
             height={10}
@@ -97,13 +113,17 @@ export default function Gallery() {
         </LinkBox>
       </Item>
       <Item colSpan={{ base: 2, md: 1 }} rowSpan={1}>
-        <Image src={"/gallery/dumplings.webp"} alt="all" {...imageStyle} />
+        <Image
+          src={"/about/gallery/dumplings.webp"}
+          alt="all"
+          {...imageStyle}
+        />
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
-        <Image src={"/gallery/taco.webp"} alt="all" {...imageStyle} />
+        <Image src={"/about/gallery/taco.webp"} alt="all" {...imageStyle} />
       </Item>
       <Item colSpan={{ base: 4, md: 2 }} rowSpan={1}>
-        <Image src={"/gallery/crowd.webp"} alt="all" {...imageStyle} />
+        <Image src={"/about/gallery/crowd.webp"} alt="all" {...imageStyle} />
       </Item>
     </Grid>
   );
