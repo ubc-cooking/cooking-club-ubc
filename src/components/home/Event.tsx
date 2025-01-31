@@ -1,6 +1,15 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Container,
+  Flex,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 import Image from "../Image";
 import { upcomingEvents } from "@/data";
+import NextLink from "next/link";
 
 export default function Event() {
   const curr = upcomingEvents[0];
@@ -32,25 +41,26 @@ export default function Event() {
       <Flex
         position={"relative"}
         my={10}
-        mx={{ base: "5%", md: "10%" }}
+        mx={{ base: "5%", md: "15%" }}
+        // maxW={"6xl"}
         direction={{ base: "column", md: "row" }}
         borderRadius={"lg"}
         overflow={"hidden"}
         boxShadow={"xl"}
         height={{ base: "fit-content" }}
-        alignItems={"stretch"}
       >
         <Box
           position={"relative"}
           width={{ base: "100%", md: 400, lg: "60%" }}
           height={{ base: 300, md: 450 }}
+          background={"#20376f"}
         >
           <Image
             src={curr.imagePath}
             alt="event"
             width={200}
             height={200}
-            objectFit={"cover"}
+            objectFit={"contain"}
             w={"100%"}
             h={"100%"}
           />
@@ -95,6 +105,9 @@ export default function Event() {
           </Text>
           {curr.isOpen ? (
             <Button
+              as={NextLink}
+              href={curr.registerLink}
+              target="_blank"
               size={"md"}
               mt={3}
               background={"secondary"}

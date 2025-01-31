@@ -13,7 +13,7 @@ interface EventType {
 export const upcomingEvents: EventType[] = [
   {
     title: "Workshop TBA",
-    imagePath: "/placeholder.svg",
+    imagePath: "/home/events/chickenpiccata.webp",
     date: "31",
     month: "JAN",
     location: "FNH 130",
