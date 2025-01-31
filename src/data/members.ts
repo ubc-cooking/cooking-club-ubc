@@ -14,14 +14,14 @@ export const teamData: TeamType[] = [
     team: "admin",
     members: [
       { name: "Umang Ajmera", role: "President", hasImage: true },
-      { name: "Nathan Wu", role: "Vice President" },
+      { name: "Nathan Wu", role: "Vice President", hasImage: true },
       { name: "McEwen Gutierrez", role: "Treasurer", hasImage: true },
     ],
   },
   {
     team: "cooking",
     members: [
-      { name: "Cristin Cheung", role: "Cooking Director" },
+      { name: "Cristin Cheung", role: "Cooking Director", hasImage: true },
       { name: "Sarah Toy", role: "Cooking Director", hasImage: true },
       { name: "Ada Zhou", role: "Cooking Coordinator" },
       { name: "Anna Xie", role: "Cooking Coordinator", hasImage: true },
@@ -90,7 +90,6 @@ export const teamData: TeamType[] = [
         hasImage: true,
       },
       { name: "Simona Kolvek", role: "Partnership + Outreach Coordinator" },
-      { name: "Zak", role: "Partnership + Outreach Coordinator" },
     ],
   },
   {
