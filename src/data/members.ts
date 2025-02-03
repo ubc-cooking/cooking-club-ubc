@@ -28,7 +28,6 @@ export const teamData: TeamType[] = [
       { name: "Jane Nguyen", role: "Cooking Coordinator" },
       { name: "Jessica Lin", role: "Cooking Coordinator", hasImage: true },
       { name: "Linh Ha", role: "Cooking Coordinator" },
-      { name: "Luke Kojima", role: "Cooking Coordinator" },
       { name: "Shriya Dua", role: "Cooking Coordinator" },
       { name: "Takeo Iwase", role: "Cooking Coordinator", hasImage: true },
       { name: "Tracy Ngo", role: "Cooking Coordinator", hasImage: true },
@@ -40,10 +39,10 @@ export const teamData: TeamType[] = [
     team: "marketing",
     members: [
       { name: "Prudence Hung", role: "Marketing Director", hasImage: true },
-      { name: "Caitlin Serafino", role: "Marketing Director" },
+      { name: "Caitlin Serafino", role: "Marketing Director", hasImage: true },
       { name: "Joyce Lau", role: "Social Media Rep", hasImage: true },
       { name: "Katie Chang", role: "Social Media Rep" },
-      { name: "Leo Shang", role: "Graphic Designer" },
+      { name: "Leo Shang", role: "Graphic Designer", hasImage: true },
       { name: "Jessica Wang", role: "Graphic Designer", hasImage: true },
       {
         name: "Kelvin Zhou",
