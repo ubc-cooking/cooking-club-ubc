@@ -23,17 +23,6 @@ export const upcomingEvents: EventType[] = [
   // },
   {
     title: "Workshop TBA",
-    imagePath: "/graphics/tomato.svg",
-    date: "14",
-    month: "FEB",
-    location: "Arbutus Collegium (6488 University Blvd)",
-    time: "February 14th, 2025 : 5.30-8:30pm",
-    registerLink: "",
-    isOpen: false,
-    isFull: false,
-  },
-  {
-    title: "Workshop TBA",
     imagePath: "/graphics/taco.svg",
     date: "28",
     month: "FEB",

@@ -3,7 +3,6 @@ export interface MenuType {
   title: string;
   description: string;
   tags: string[];
-  imagePath: string;
   ingredients: string[];
   steps: string[];
 }
@@ -14,7 +13,6 @@ export const menuData: MenuType[] = [
     title: "Fish or Bean Taco Workshop",
     description: "Learn how to make delicious fish or bean tacos from scratch.",
     tags: ["Tacos", "Mexican", "Seafood"],
-    imagePath: "/images/fish-or-bean-tacos.jpg",
     ingredients: [
       "Fish (baked with spices OR fried in egg, flour, and panko)",
       "Black beans",
@@ -60,7 +58,6 @@ export const menuData: MenuType[] = [
     description:
       "Master the art of making Yachaejeon, a savory Korean vegetable pancake.",
     tags: ["Korean", "Savory"],
-    imagePath: "/images/yachaejeon.jpg",
     ingredients: [
       "4 green onions, cut into 1-inch long pieces",
       "1/3 cup leek (optional), sliced thinly 1 inch long",
@@ -92,7 +89,6 @@ export const menuData: MenuType[] = [
     description:
       "Craft your own vegetarian dumplings with this hands-on workshop.",
     tags: ["Dumplings", "Asian"],
-    imagePath: "/images/vegetarian-dumplings.jpg",
     ingredients: [
       "5.5 lbs firm or extra firm tofu, drained and crumbled",
       "3 lbs napa cabbage, thinly sliced",
@@ -130,7 +126,6 @@ export const menuData: MenuType[] = [
     description:
       "Prepare a wholesome eggplant lasagna paired with homemade garlic bread.",
     tags: ["Italian", "Comfort Food"],
-    imagePath: "/images/eggplant-lasagna-garlic-bread.jpg",
     ingredients: [
       "EGGPLANT LASAGNA: 3–5 eggplants (round, fat ones)",
       "1 brown onion, diced [optional]",
@@ -170,7 +165,6 @@ export const menuData: MenuType[] = [
     description:
       "Learn how to make a crowd-pleasing sushi bake in this workshop.",
     tags: ["Japanese", "Seafood", "Baked"],
-    imagePath: "/images/sushi-bake.jpg",
     ingredients: [
       "1/2 lb salmon, seasoned to preference",
       "1/2 lb imitation crab, shredded and cut",
@@ -200,7 +194,6 @@ export const menuData: MenuType[] = [
     title: "Bruschetta Workshop",
     description: "Learn how to make a bruschetta in this workshop.",
     tags: ["Italy", "Appetizer"],
-    imagePath: "/images/sushi-bake.jpg",
     ingredients: [
       "2 cups red and yellow grape tomatoes (or cherry tomatoes), halved",
       "1 tbsp balsamic vinegar",
@@ -216,6 +209,87 @@ export const menuData: MenuType[] = [
       "Slice tomatoes into quarters and add to a bowl with balsamic vinegar, basil, salt, and pepper. Toss to combine and adjust seasonings to taste.",
       "Slice the garlic in half, then rub the cut halves of the garlic evenly over the tops of the bread slices to add as much or as little garlic flavor as desired.",
       "Serve tomato, feta cheese, and garlic mixture over toasted bread.",
+    ],
+  },
+  {
+    id: "chickenpiccatawithfreshpastaworkshop",
+    title: "Chicken Piccata with Fresh Pasta Workshop",
+    description: "A delicious Chicken Piccata served with fresh pasta.",
+    tags: ["Italian", "Pasta", "Chicken", "Homemade"],
+    ingredients: [
+      "400g All-Purpose Flour",
+      "Pinch of salt",
+      "Dab of oil",
+      "4 eggs at room temperature",
+      "Softened butter",
+      "Grated Parmesan",
+      "Minced Italian parsley",
+      "3-4 chicken breasts",
+      "Clarified butter (or regular butter)",
+      "Olive oil (or any neutral oil)",
+      "Flour (for coating chicken breasts)",
+      "Salt & pepper",
+      "1 tbsp capers + caper juice",
+      "50mL white wine or white wine vinegar",
+      "5-10mL lemon juice",
+      "150mL chicken stock",
+    ],
+    steps: [
+      "Make a well in the flour and salt mixture.",
+      "Add eggs, olive oil, and a pinch of salt into the well.",
+      "Mix the egg and olive oil with a fork without incorporating any flour yet.",
+      "Slowly incorporate flour from the sides until a dough forms.",
+      "Once dough forms, use your hands to incorporate the last bits of flour.",
+      "Knead for 10-15 minutes until smooth and plump.",
+      "Wrap with plastic wrap and let it rest for 30 minutes at room temperature.",
+      "Flatten pasta dough with a roller.",
+      "Run pasta dough through the widest setting (0) on a pasta machine.",
+      "Set the pasta machine to (2) and roll dough through again.",
+      "Fold the dough in half, reset machine to (0), and roll again.",
+      "Repeat steps until you reach thinner settings (0 → 2 → 4 → 6 → 8).",
+      "Run the thinned pasta sheet through the fettuccine cutter.",
+      "Pat dry chicken breasts with paper towels.",
+      "Butterfly chicken breasts by slicing in half horizontally.",
+      "Season both sides with salt and pepper.",
+      "Coat chicken with flour.",
+      "Heat pan to medium-high, add clarified butter and olive oil (1:1 ratio).",
+      "Sauté chicken until golden brown (~3-5 minutes per side).",
+      "Remove chicken and lower heat to medium-low.",
+      "Add capers and caper juice, smashing capers to release flavor.",
+      "Deglaze with white wine vinegar and lemon juice, increasing heat to medium.",
+      "Reduce by 30%.",
+      "Add chicken stock and further reduce by 30%.",
+      "Return chicken to pan and simmer uncovered for ~5 minutes.",
+      "Remove chicken and continue reducing the sauce until slightly thickened.",
+      "Add salt, pepper, and cold butter cubes to emulsify.",
+      "Pour sauce over chicken and serve with pasta. Enjoy!",
+    ],
+  },
+  {
+    id: "pizzaworkshop",
+    title: "Pizza Workshop",
+    description: "A classic pizza recipe.",
+    tags: ["Italian", "Pizza"],
+    ingredients: [
+      "4632g water",
+      "44g yeast",
+      "7720g all-purpose flour",
+      "232g salt",
+      "4 cans San Marzano tomatoes",
+      "3400g mozzarella",
+      "Olive oil",
+      "15 packs basil",
+      "142g x 4 arugula",
+    ],
+    steps: [
+      "Combine flour, salt, yeast, and water into a bowl and mix.",
+      "Knead the dough until smooth and bouncy.",
+      "Let the dough rest until it doubles in size.",
+      "Divide the dough into 6 equal portions.",
+      "Ball the dough and let it rest for another hour or more.",
+      "Stretch the pizza dough and top with desired toppings.",
+      "Cook in an oven preheated at the highest temperature with a pizza stone for approximately 5 minutes.",
+      "Enjoy!",
     ],
   },
 ];

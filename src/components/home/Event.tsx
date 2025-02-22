@@ -1,15 +1,13 @@
+import { upcomingEvents } from "@/data";
 import {
   Box,
   Button,
-  Center,
-  Container,
   Flex,
   Heading,
-  Text,
+  Text
 } from "@chakra-ui/react";
-import Image from "../Image";
-import { upcomingEvents } from "@/data";
 import NextLink from "next/link";
+import Image from "../Image";
 
 export default function Event() {
   const curr = upcomingEvents[0];
