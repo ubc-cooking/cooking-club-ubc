@@ -13,7 +13,7 @@ interface EventType {
 export const upcomingEvents: EventType[] = [
   // {
   //   title: "Workshop TBA",
-  //   imagePath: "/home/events/chickenpiccata.webp",
+  //   imagePath: "",
   //   date: "31",
   //   month: "JAN",
   //   location: "FNH 130",
@@ -21,15 +21,15 @@ export const upcomingEvents: EventType[] = [
   //   registerLink: "",
   //   isOpen: false,
   // },
-  {
-    title: "Workshop TBA",
-    imagePath: "/graphics/taco.svg",
-    date: "28",
-    month: "FEB",
-    location: "FNH 130",
-    time: "February 28th, 2025 : 7.30-9.30pm",
-    registerLink: "",
-    isOpen: false,
-    isFull: false,
-  },
+  // {
+  //   title: "Workshop TBA",
+  //   imagePath: "/graphics/taco.svg",
+  //   date: "28",
+  //   month: "FEB",
+  //   location: "FNH 130",
+  //   time: "February 28th, 2025 : 7.30-9.30pm",
+  //   registerLink: "",
+  //   isOpen: false,
+  //   isFull: false,
+  // },
 ];
